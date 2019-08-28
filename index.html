@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Heartbeats.</title>
+<link href="https://fonts.googleapis.com/css?family=Lora|Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+<!--Header-->
+<div id='header'>
+  <div id='headerLeft'>
+    <h1 id="headerLogo" class="hbTitle">Heartbeats.</h1>
+  </div>
+  <div id='headerRight'>
+    <nav>
+      <a href="/html/">Analytics</a>
+      <a href="/html/">Sources</a>
+      <a href="/html/">About</a>
+    </nav>
+    <a href='https://www.patternbased.com' target='_blank'>
+      <img id='pbLogo' src='images/PatternBasedArt-Logo-banner.svg'></a>
+  </div>
+  <div>
+    <img id='mute' src='images/mute.svg'>
+    <img id='unmute' class='displayNone' src='images/unmute.svg'>
+  </div>
+  </div>
+  <div class="clear"></div>
+  
+  <!--Close / Menu Buttons-->
+  <div id="rightBtn" class="btns displayNone"><img  src="images/closebtn.svg"></div>
+  
+  <!--Next Prev Arrows-->
+  <div id="leftArrow" class="arrows displayNone"><img  src="images/leftarrow.svg"></div>
+  <div id="rightArrow" class="arrows displayNone"><img  src="images/rightarrow.svg"></div>
+  
+  <!--The Heart-->
+    <div id="heartPosition" class="displayNone"><svg version="1.1" id="heartid" class="heart"
+     viewBox="0 0 792 612" xml:space="preserve">
+    <path id="heartPath" d="M121.65,218.8c-0.41-20.19,2.66-39.87,9.38-58.88c12.65-35.82,36.09-62.16,71.27-76.71
+      c42.75-17.68,86.31-19.86,129.86-2.46c24.49,9.78,44.79,25.48,61.19,46.1c2.79,3.51,4.12,3.95,7.2,0.14
+      c26.61-32.9,60.99-52.58,103.07-56.86C552,65.2,594.2,80.1,628.54,114.75c32.29,32.58,46.67,72.42,43.51,118.11
+      c-1.56,22.6-10.08,43.37-20.68,63.2c-21.09,39.47-49.59,73.32-80.62,105.16c-51.23,52.56-108.04,98.49-167.85,140.84
+      c-4.38,3.1-7.44,3.07-11.85,0.05c-64.42-44.03-125.09-92.56-178.74-149.42c-28.45-30.16-54.23-62.41-72.52-99.95
+      C128.44,269.45,120.49,245.22,121.65,218.8z"/></svg></div>
+  
+  <!-- The Modal -->
+  <div id="playModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <h1 class="hbTitle">Heartbeats.</h1>
+        <p class="body-text">Sound is a part of the experience. </br>Please enable your speaker or headphone, and click &hearts; below.</p>
+      <img id="playHeart" src="images/heart-play.svg">
+      <span class="modal-close">Play muted for now</span>
+    </div>
+  </div>
+  
+  <!--Animals Start Here-->  
+  <div class='gridwrapper'>
+  
+   <div class='square bluewhale' data-post='50' data-posl='70' data-size='75' data-color='192768' id='bluewhale'>
+    <table class='animal'>
+      <tr><td class='aniname'>Blue Whale</td></tr>
+      <tr><td class='aniimg'><img src="images/bluewhale.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>9<span>BPM</span></td>
+     <td>95<span>years</span></td>
+     <td>449m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square deserttortoise' data-post='48' data-posl='45' data-size='55' data-color='5D6EA4' id='deserttortoise'>
+    <table class='animal'>
+      <tr><td class='aniname'>Desert Tortoise</td></tr>
+      <tr><td class='aniimg'><img  src="images/deserttortoise.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>12<span>BPM</span></td>
+     <td>60<span>years</span></td>
+     <td>378m</td>
+    </tr></table></td></table></div>
+  
+  <div class='square elephant' data-post='40' data-posl='45' data-size='75' data-color='43110A' id='elephant'>
+    <table class='animal'>
+      <tr><td class='aniname'>Elephant</td></tr>
+      <tr><td class='aniimg'><img  src="images/elephant.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>30<span>BPM</span></td>
+     <td>60<span>years</span></td>
+     <td>946m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square alligator' data-post='47' data-posl='75' data-size='50' data-color='024E91' id='alligator'>
+     <table class='animal'>
+      <tr><td class='aniname'>Alligator</td></tr>
+      <tr><td class='aniimg'><img  src="images/alligator.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>32<span>BPM</span></td>
+     <td>40<span>years</span></td>
+     <td>673m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square horse' data-post='40' data-posl='53' data-size='75' data-color='C94741' id='horse'>
+      <table class='animal'>
+      <tr><td class='aniname'>Horse</td></tr>
+      <tr><td class='aniimg'><img  src="images/horse.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>34<span>BPM</span></td>
+     <td>25<span>years</span></td>
+     <td>447m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square dolphin' data-post='20' data-posl='65' data-size='65' data-color='4288B3' id='dolphin'>
+      <table class='animal'>
+      <tr><td class='aniname'>Dolphin</td></tr>
+      <tr><td class='aniimg'><img  src="images/dolphin.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>40<span>BPM</span></td>
+     <td>45<span>years</span></td>
+     <td>946m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square ox' data-post='50' data-posl='60' data-size='75' data-color='821955' id='ox'>
+      <table class='animal'>
+      <tr><td class='aniname'>Ox</td></tr>
+      <tr><td class='aniimg'><img  src="images/ox.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>50<span>BPM</span></td>
+     <td>20<span>years</span></td>
+     <td>526m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square brownbear' data-post='40' data-posl='50' data-size='75' data-color='7A4034' id='brownbear'>
+      <table class='animal'>
+      <tr><td class='aniname'>Brown Bear</td></tr>
+      <tr><td class='aniimg'><img  src="images/brownbear.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>55<span>BPM</span></td>
+     <td>25<span>years</span></td>
+     <td>723m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square giraffe' data-post='50' data-posl='45' data-size='55' data-color='B78B3D' id='giraffe'>
+      <table class='animal'>
+      <tr><td class='aniname'>Giraffe</td></tr>
+      <tr><td class='aniimg'><img  src="images/giraffe.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>65<span>BPM</span></td>
+     <td>25<span>years</span></td>
+     <td>854m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square dairycow' data-post='40' data-posl='40' data-size='75' data-color='6A0100' id='dairycow'>
+      <table class='animal'>
+      <tr><td class='aniname'>Dairy Cow</td></tr>
+      <tr><td class='aniimg'><img  src="images/dairycow.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>67<span>BPM</span></td>
+     <td>25<span>years</span></td>
+     <td>880m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square human' data-post='30' data-posl='50' data-size='55' data-color='AF2A23' id='human'>
+      <table class='animal'>
+      <tr><td class='aniname'>Human</td></tr>
+      <tr><td class='aniimg'><img  src="images/human.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>72<span>BPM</span></td>
+     <td>79<span>years</span></td>
+     <td>2989m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square goat' data-post='50' data-posl='55' data-size='65' data-color='A2703D' id='goat'>
+      <table class='animal'>
+      <tr><td class='aniname'>Goat</td></tr>
+      <tr><td class='aniimg'><img  src="images/goat.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>75<span>BPM</span></td>
+     <td>16<span>years</span></td>
+     <td>630m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square sheep' data-post='40' data-posl='55' data-size='75' data-color='DEB771' id='sheep'>
+      <table class='animal'>
+      <tr><td class='aniname'>Sheep</td></tr>
+      <tr><td class='aniimg'><img  src="images/sheep.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>77<span>BPM</span></td>
+     <td>11<span>years</span></td>
+     <td>445m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square pig' data-post='45' data-posl='60' data-size='75' data-color='9C2336' id='pig'>
+      <table class='animal'>
+      <tr><td class='aniname'>Pig</td></tr>
+      <tr><td class='aniimg'><img  src="images/pig.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>80<span>BPM</span></td>
+     <td>8<span>years</span></td>
+     <td>336m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square dog' data-post='45' data-posl='60' data-size='75' data-color='D45066' id='dog'>
+      <table class='animal'>
+      <tr><td class='aniname'>Dog</td></tr>
+      <tr><td class='aniimg'><img  src="images/dog.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>90<span>BPM</span></td>
+     <td>10<span>years</span></td>
+     <td>473m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square cat' data-post='50' data-posl='60' data-size='65' data-color='A6597A' id='cat'>
+      <table class='animal'>
+      <tr><td class='aniname'>Cat</td></tr>
+      <tr><td class='aniimg'><img  src="images/cat.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>130<span>BPM</span></td>
+     <td>10<span>years</span></td>
+     <td>683m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square pigeon' data-post='48' data-posl='55' data-size='65' data-color='96975D' id='pigeon'>
+      <table class='animal'>
+      <tr><td class='aniname'>Pigeon</td></tr>
+      <tr><td class='aniimg'><img  src="images/pigeon.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>185<span>BPM</span></td>
+     <td>6<span>years</span></td>
+     <td>583m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square duck' data-post='50' data-posl='60' data-size='75' data-color='5D9776' id='duck'>
+      <table class='animal'>
+      <tr><td class='aniname'>Duck</td></tr>
+      <tr><td class='aniimg'><img  src="images/duck.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>190<span>BPM</span></td>
+     <td>7.5<span>years</span></td>
+     <td>749m</td>
+    </tr></table></td></table></div>
+   <div class='square monkey' data-post='62' data-posl='62' data-size='65' data-color='F47C76' id='monkey'>
+      <table class='animal'>
+      <tr><td class='aniname'>Monkey</td></tr>
+      <tr><td class='aniimg'><img  src="images/monkey.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>205<span>BPM</span></td>
+     <td>20<span>years</span></td>
+     <td>2154m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square wildturkey' data-post='45' data-posl='58' data-size='75' data-color='016761' id='wildturkey'>
+      <table class='animal'>
+      <tr><td class='aniname'>Wild Turkey</td></tr>
+      <tr><td class='aniimg'><img  src="images/wildturkey.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>215<span>BPM</span></td>
+     <td>10<span>years</span></td>
+     <td>1130m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square rabbit' data-post='60' data-posl='53' data-size='75' data-color='F19FA4' id='rabbit'>
+      <table class='animal'>
+      <tr><td class='aniname'>Rabbit</td></tr>
+      <tr><td class='aniimg'><img  src="images/rabbit.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>235<span>BPM</span></td>
+     <td>8.5<span>years</span></td>
+     <td>1050m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square chicken' data-post='45' data-posl='64' data-size='65' data-color='81BAA9' id='chicken'>
+      <table class='animal'>
+      <tr><td class='aniname'>Chicken</td></tr>
+      <tr><td class='aniimg'><img  src="images/chicken.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>275<span>BPM</span></td>
+     <td>8<span>years</span></td>
+     <td>1156m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square buzzard' data-post='65' data-posl='40' data-size='55' data-color='5A6B41' id='buzzard'>
+      <table class='animal'>
+      <tr><td class='aniname'>Buzzard</td></tr>
+      <tr><td class='aniimg'><img  src="images/buzzard.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>300<span>BPM</span></td>
+     <td>16<span>years</span></td>
+     <td>2523m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square americancrow' data-post='40' data-posl='60' data-size='65' data-color='002224' id='americancrow'>
+      <table class='animal'>
+      <tr><td class='aniname'>American Crow</td></tr>
+      <tr><td class='aniimg'><img  src="images/americancrow.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>380<span>BPM</span></td>
+     <td>8<span>years</span></td>
+     <td>1598m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square mouse' data-post='48' data-posl='55' data-size='65' data-color='EDA56C' id='mouse'>
+      <table class='animal'>
+      <tr><td class='aniname'>Mouse</td></tr>
+      <tr><td class='aniimg'><img  src="images/mouse.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>600<span>BPM</span></td>
+     <td>2<span>years</span></td>
+     <td>631m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square canary' data-post='42' data-posl='55' data-size='55' data-color='99B87F' id='canary'>
+      <table class='animal'>
+      <tr><td class='aniname'>Canary</td></tr>
+      <tr><td class='aniimg'><img  src="images/canary.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>1000<span>BPM</span></td>
+     <td>10<span>years</span></td>
+     <td>5256m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square hummingbird' data-post='48' data-posl='48' data-size='55' data-color='38A2A0' id='hummingbird'>
+      <table class='animal'>
+      <tr><td class='aniname'>Hummingbird</td></tr>
+      <tr><td class='aniimg'><img  src="images/hummingbird.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>1260<span>BPM</span></td>
+     <td>5<span>years</span></td>
+     <td>3311m</td>
+    </tr></table></td></table></div>
+  
+   <div class='square etruscanshrew' data-post='48' data-posl='58' data-size='55' data-color='D58E9F' id='etruscanshrew'>
+      <table class='animal'>
+      <tr><td class='aniname'>Etruscan Shrew</td></tr>
+      <tr><td class='aniimg'><img  src="images/etruscanshrew.svg">
+    <tr><td class='aniinfo'><table>
+    <thead><tr><th>Heart Rate</th><th>Life Expectancy</th><th>Total Heartbeats</th></tr></thead>
+    <tr>
+     <td>1510<span>BPM</span></td>
+     <td>2<span>years</span></td>
+     <td>1587m</td>
+    </tr></table></td></table></div>
+  
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
+
