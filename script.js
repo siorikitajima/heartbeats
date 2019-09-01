@@ -1,3 +1,42 @@
+var populateTemplateWithData = function (templateString, data) {
+  var variableRegex = /{{(.*)}}/gm
+  var replaceFunction = function (
+    wholeVariable,
+    variableName
+  ) {
+    return data[variableName]
+  }
+  return templateString.replace(
+    variableRegex,
+    replaceFunction
+  )
+}
+
+var animalTemplateHolderElement = document.getElementById(
+  'animal-template'
+)
+var animalTemplateString = animalTemplateHolderElement.innerText
+var animalData = {
+  "id": "bluewhale",
+  "name": "Blue Whale",
+  "color": "#192768",
+  "heartTop": 50,
+  "heartLeft": 70,
+  "heartSize": 75,
+  "beatsPerMinute": 9,
+  "years": 95,
+  "beatsPerLife": 449
+}
+var gridWrapperElement = document.getElementById(
+  'grid-wrapper'
+)
+var parsedTemplateString = populateTemplateWithData(
+  animalTemplateString,
+  animalData
+)
+
+gridWrapperElement.innerHTML = parsedTemplateString;
+
 // This js works with index2.html without 'loopify2.js'
 /* --------- loopify --------- */
 (function() {
@@ -204,6 +243,6 @@ function ready(err,loop){
   });
   document.getElementById('bluewhale').addEventListener("click",function(){
     loop.stop()
-    });
-  };
+  });
+};
 
