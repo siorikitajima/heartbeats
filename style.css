@@ -228,12 +228,18 @@ image.imgclick {
   animation-iteration-count: infinite;
   animation-duration: 0.83s;
   }
-.modal-close {
+.modal-close,
+.modal-loading-status,
+.animal-loading-status {
   color: #aaa;
   margin: 0 auto;
   font-size: 0.8em;
   font-weight: bold;
-  font-family: 'Lora', serif;}
+  font-family: 'Lora', serif;
+}
+.animal-loading-status {
+  line-height: 10em;
+}
 .modal-close:hover,
 .modal-close:focus {
   color: #666666;
@@ -353,4 +359,3 @@ image.imgclick {
     background: #D58E9F;
     fill: #D58E9F;
     animation-duration: 0.03s;}
-    
