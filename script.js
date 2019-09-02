@@ -1,3 +1,23 @@
+var getJsonData = function (path, callback) {
+  var request = new XMLHttpRequest();
+
+  request.open("GET", path, true);
+
+  // XHR failed
+  request.onerror = function() {
+    cb(new Error("Couldn't load JSON from " + path));
+  };
+
+  // XHR complete
+  request.onload = function() {
+    var dataString = request.response
+    var parsedData = JSON.parse(dataString)
+    callback(parsedData)
+  };
+
+  request.send();
+} 
+
 var populateTemplateWithData = function (templateString, data) {
   var variableRegex = /{{(.*)}}/gm
   var replaceFunction = function (
@@ -16,34 +36,44 @@ var animalTemplateHolderElement = document.getElementById(
   'animal-template'
 )
 var animalTemplateString = animalTemplateHolderElement.innerText
-var animalData = {
-  "id": "bluewhale",
-  "name": "Blue Whale",
-  "color": "#192768",
-  "heartTop": 50,
-  "heartLeft": 70,
-  "heartSize": 75,
-  "beatsPerMinute": 9,
-  "years": 95,
-  "beatsPerLife": 449
-}
-var gridWrapperElement = document.getElementById(
-  'grid-wrapper'
-)
-var parsedTemplateString = populateTemplateWithData(
-  animalTemplateString,
-  animalData
-)
+var animalDataHandler = function(animals) {
+  console.log('Animal Data Handler Was Called')
+  var parsedAnimalTemplateStrings = animals.map(function(animal) {
+    return populateTemplateWithData(
+      animalTemplateString,
+      animal
+    )
+  })
+  var gridWrapperElement = document.getElementById(
+    'grid-wrapper'
+  )
+  
+  gridWrapperElement.innerHTML = parsedAnimalTemplateStrings.join('');
 
-gridWrapperElement.innerHTML = parsedTemplateString;
+  animals.forEach(function(animal) {
+    var oggPath = 'sounds/' + animal.id + '.ogg'
+    loopify(
+      oggPath,
+      handleOggReady
+    )
+  })
+}
+console.log('Before data was requested')
+
+getJsonData(
+  'animal_data.json',
+  animalDataHandler
+);
+
+console.log('After data was requested');
 
 // This js works with index2.html without 'loopify2.js'
 /* --------- loopify --------- */
 (function() {
   function loopify(uri,cb) {
 
-    var context = new (window.AudioContext || window.webkitAudioContext)(),
-        request = new XMLHttpRequest();
+    var context = new (window.AudioContext || window.webkitAudioContext)()
+    var request = new XMLHttpRequest();
 
     request.responseType = "arraybuffer";
     request.open("GET", uri, true);
@@ -109,40 +139,6 @@ gridWrapperElement.innerHTML = parsedTemplateString;
     this.loopify = loopify;
   }
 })();
-
-var hbSounds = [
-loopify("sounds/01BlueWhale09.ogg",ready),
-loopify("sounds/02DesertTortoise12.ogg",ready),
-loopify("sounds/03LargeWhale20.ogg",ready),
-loopify("sounds/04Elephant30.ogg",ready),
-loopify("sounds/05Alligator32.ogg",ready),
-loopify("sounds/06Horse34.ogg",ready),
-loopify("sounds/07Dolphin40.ogg",ready),
-loopify("sounds/08Ox50.ogg",ready),
-loopify("sounds/09BrownBear55.ogg",ready),
-loopify("sounds/10Condor65.ogg",ready),
-loopify("sounds/11Giraffe67.ogg",ready),
-loopify("sounds/12DairyCow69.ogg",ready),
-loopify("sounds/13Human72.ogg",ready),
-loopify("sounds/14Goat73.ogg",ready),
-loopify("sounds/15Sheep75.ogg",ready),
-loopify("sounds/16Pig80.ogg",ready),
-loopify("sounds/17Dog90.ogg",ready),
-loopify("sounds/18Cat130.ogg",ready),
-loopify("sounds/19Pigeon185.ogg",ready),
-loopify("sounds/20Duck190.ogg",ready),
-loopify("sounds/21Monkey190.ogg",ready),
-loopify("sounds/22WildTurkey195.ogg",ready),
-loopify("sounds/23Rabbit205.ogg",ready),
-loopify("sounds/24GuineaPig250.ogg",ready),
-loopify("sounds/25Chicken275.ogg",ready),
-loopify("sounds/26Buzzard300.ogg",ready),
-loopify("sounds/27AmericanCrow380.ogg",ready),
-loopify("sounds/28Hamster450.ogg",ready),
-loopify("sounds/29Mouse600.ogg",ready),
-loopify("sounds/30Canary1000.ogg",ready),
-loopify("sounds/31Hummingbird1260.ogg",ready),
-loopify("sounds/32EtruscanSchrew1510.ogg",ready)];
 
 /* --------- When an animal square is clicked --------- */
 $('.square').click(function(){
@@ -223,26 +219,30 @@ $(".modal-close").click (function() {
 
 /* --------- Loopify contoll with Modal & Mute/Unmute Btn --------- */
 
-function ready(err,loop){
+document.getElementById("playHeart").addEventListener("click",function(){
+  $("#playModal").addClass("displayNone");
+});
+document.getElementById("mute").addEventListener("click",function(){
+  $('#mute').addClass('displayNone');
+  $('#unmute').removeClass('displayNone');
+});
+document.getElementById("unmute").addEventListener("click",function(){
+  $('#unmute').addClass('displayNone');
+  $('#mute').removeClass('displayNone');
+});
+
+function handleOggReady(err,loop){
   if (err) {
     console.warn(err);
   }
   document.getElementById("playHeart").addEventListener("click",function(){
     loop.start();
-    $("#playModal").addClass("displayNone");
   });
   document.getElementById("mute").addEventListener("click",function(){
     loop.stop();
-    $('#mute').addClass('displayNone');
-    $('#unmute').removeClass('displayNone');
   });
   document.getElementById("unmute").addEventListener("click",function(){
     loop.start();
-    $('#unmute').addClass('displayNone');
-    $('#mute').removeClass('displayNone');
-  });
-  document.getElementById('bluewhale').addEventListener("click",function(){
-    loop.stop()
   });
 };
 
