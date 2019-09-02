@@ -16,7 +16,7 @@ var getJsonData = function (path, callback) {
   };
 
   request.send();
-} 
+}
 
 var populateTemplateWithData = function (templateString, data) {
   var variableRegex = /{{(.*)}}/gm
@@ -37,7 +37,7 @@ var animalTemplateHolderElement = document.getElementById(
 )
 var animalTemplateString = animalTemplateHolderElement.innerText
 var animalDataHandler = function(animals) {
-  console.log('Animal Data Handler Was Called')
+  console.log('Animal Data loaded')
   var parsedAnimalTemplateStrings = animals.map(function(animal) {
     return populateTemplateWithData(
       animalTemplateString,
@@ -50,22 +50,56 @@ var animalDataHandler = function(animals) {
   
   gridWrapperElement.innerHTML = parsedAnimalTemplateStrings.join('');
 
-  animals.forEach(function(animal) {
-    var oggPath = 'sounds/' + animal.id + '.ogg'
-    loopify(
-      oggPath,
-      handleOggReady
-    )
-  })
+
+  var loops = []
+
+  var startAll = function () {
+    loops.forEach(function (loop) {
+      loop.start()
+    })
+  }
+
+  var handleAllOggsLoaded = function () {
+    console.log('All the Oggs loaded')
+    $("#playModal").addClass("displayNone");
+    startAll()
+  }
+
+  var animalsLoaded = 0
+  $("#loadingProgress").text(animalsLoaded + ' / ' + animals.length)
+  $("#playHeart").on('click', function(){
+    $('.modal-loading-status').addClass('displayBlock');
+    $(".modal-close").addClass("displayNone");
+
+    animals.forEach(function(animal) {
+      var oggPath = 'sounds/' + animal.id + '.ogg'
+      loopify(
+        oggPath,
+        function (err, loop) {
+          animalsLoaded += 1
+          $("#loadingProgress").text(animalsLoaded + ' / ' + animals.length)
+          if (animalsLoaded === animals.length) {
+            handleAllOggsLoaded()
+          }
+          if (loop) {
+            loops.push(loop)
+          }
+          handleOggReady(err, loop)
+        }
+      )
+    })
+  });
+
+
+  $('.animal-loading-status').addClass('displayNone')
+  $('.show-starter').removeClass('displayNone')
+
 }
-console.log('Before data was requested')
 
 getJsonData(
   'animal_data.json',
   animalDataHandler
 );
-
-console.log('After data was requested');
 
 // This js works with index2.html without 'loopify2.js'
 /* --------- loopify --------- */
@@ -219,9 +253,6 @@ $(".modal-close").click (function() {
 
 /* --------- Loopify contoll with Modal & Mute/Unmute Btn --------- */
 
-document.getElementById("playHeart").addEventListener("click",function(){
-  $("#playModal").addClass("displayNone");
-});
 document.getElementById("mute").addEventListener("click",function(){
   $('#mute').addClass('displayNone');
   $('#unmute').removeClass('displayNone');
@@ -235,9 +266,6 @@ function handleOggReady(err,loop){
   if (err) {
     console.warn(err);
   }
-  document.getElementById("playHeart").addEventListener("click",function(){
-    loop.start();
-  });
   document.getElementById("mute").addEventListener("click",function(){
     loop.stop();
   });

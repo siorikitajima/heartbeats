@@ -49,10 +49,20 @@
   <div id="playModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-        <h1 class="hbTitle">Heartbeats.</h1>
-        <p class="body-text">Sound is a part of the experience. </br>Please enable your speaker or headphone, and click &hearts; below.</p>
-      <img id="playHeart" src="images/heart-play.svg">
-      <span class="modal-close">Play muted for now</span>
+      <h1 class="hbTitle">Heartbeats.</h1>
+      <p class="body-text">Sound is a part of the experience. </br>Please enable your speaker or headphone, and click &hearts; below.</p>
+      <p class="animal-loading-status">Loading Animals...</p>
+      <div class="show-starter displayNone">
+        <img
+          id="playHeart"
+          src="images/heart-play.svg"
+        />
+        <span class="modal-loading-status displayNone">
+          <span>Loading:</span>
+          <span id="loadingProgress">0 / 0</span>
+        </span>
+        <span class="modal-close">Play muted for now</span>
+      </div>
     </div>
   </div>
 
@@ -110,4 +120,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
