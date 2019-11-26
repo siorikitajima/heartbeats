@@ -1,5 +1,5 @@
 /* ------------------Global------------------ */
-body {  margin: 0; padding: 0; text-align: center; background: #efefef ;}
+body {  margin: 0; padding: 0; text-align: center; background: #dddddd ;}
 .body-text {
   font-size: 1em;
   text-decoration: none;
@@ -85,7 +85,7 @@ nav a:hover {
   margin: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-rows: 1fr;
   grid-gap: 0;}
 .gridwrapper::before {
@@ -137,6 +137,7 @@ nav a:hover {
 
 /* Grid <> fullscreen Animation */
 .square {
+  display: inline;
   min-width: 150px;
   min-height: 150px;
   z-index:1;
@@ -201,7 +202,6 @@ image.imgclick {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(255,137,127);
   background-color: rgba(255,137,127,0.8);}
 
 /* Modal Box */
@@ -255,8 +255,8 @@ image.imgclick {
   position: fixed;
   opacity: 0.2;
   overflow: hidden;}
-.arrows {  top: 50%;}
-.btns {  top: 10%;}
+.arrows {  top: calc(50% - 30px);}
+.btns {  top: 80px;}
 .arrowsvisible, .btnsvisible {
   visibility: visible;
   transition-delay: 0.2s;}

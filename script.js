@@ -175,22 +175,23 @@ getJsonData(
 })();
 
 /* --------- When an animal square is clicked --------- */
-$('.square').click(function(){
+$(document).on('click', '.square', function(){
 
   /* ---Grid <> Fullscreen--- */
-  $(this).toggleClass('fullscreen');
+  $(this).removeClass('square');
+  $(this).addClass('fullscreen');
 
   /* ---Positioning & Coloring Heart--- */
-   var posAdjustTop = $(this).attr("data-post");
-   var posAdjustLeft = $(this).attr("data-posl");
-   var heartSize = $(this).attr("data-size");
+   var posAdjustTop = $(this).attr("data-heart-top");
+   var posAdjustLeft = $(this).attr("data-heart-left");
+   var heartSize = $(this).attr("data-heart-size");
    var heartColor = $(this).attr("data-color");
    var heartClass = $(this).attr("id");
   $('#heartid').css('top', posAdjustTop +'%');
   $('#heartid').css('left', posAdjustLeft +'%');
   $('#heartid').css('width', heartSize +'px');
   $('#heartPath').addClass(heartClass);
-  $('#heartPath').css('fill', '#' + heartColor);
+  $('#heartPath').css('fill', heartColor);
 
   /* ---Heart, Arrows and Btns, Opening to Fullscreen--- */
   if ($(this).hasClass('fullscreen')) { 
@@ -204,50 +205,62 @@ $('.square').click(function(){
     $('#heartPosition').addClass('displayNone');
     $('.arrows').addClass('displayNone');
     $('.btns').addClass('displayNone');
-      };
-  });
-  
-/* ---Clicking on Side Arrows--- */
-$('#rightArrow').click(function(){
-  var nextDiv = $('.fullscreen').next('.square');
-  $('.fullscreen').trigger('click');
-  $(nextDiv).trigger('click');
-  });
-$('#leftArrow').click(function(){
-  var prevDiv = $('.fullscreen').prev('.square');
-  $('.fullscreen').trigger('click');
-  $(prevDiv).trigger('click');
+      }
 });
 
 /* ---Close Button--- */
-$('#rightBtn').click(function(){
-  $('.fullscreen').trigger('click');
-  });
-  
-/* --- UnMute all ---*/
-//  $('#unmute').on('click',function(){
-//    $('#unmute').addClass('displayNone');
-//    $('#mute').removeClass('displayNone');});
-  /* --- Mute all ---*/
-//  $('#mute').on('click',function(){    
-//    $('#mute').addClass('displayNone');
-//    $('#unmute').removeClass('displayNone');});
+    $('#rightBtn').click(function(){
+    var currentAnimal =  $(document).find('.fullscreen');
+    $(currentAnimal).addClass('square');
+    $(currentAnimal).removeClass('fullscreen');
+    $('#heartPosition, .arrows, .btns').addClass('displayNone');
+    });
+
+/* ---Clicking on Side Arrows--- */
+
+$('#rightArrow').click(function(){
+    var nextDiv = $('.fullscreen').next('.square');
+    if( nextDiv.length == 0 ) {
+      var currentAnimal =  $(document).find('.fullscreen');
+      $('.square:first').trigger('click');
+      $(currentAnimal).addClass('square');
+      $(currentAnimal).removeClass('fullscreen');
+    } else {
+      $(nextDiv).trigger('click');
+      $('.fullscreen').trigger('click');
+    }
+  $('#heartid').hide(1).delay(300).show(100);
+});
+
+$('#leftArrow').click(function(){
+    var prevDiv = $('.fullscreen').prev('.square');
+    var currentAnimal =  $(document).find('.fullscreen');
+    if( prevDiv.length == 0 ) {
+        $('.square:last').trigger('click');
+        $(currentAnimal).addClass('square');
+        $(currentAnimal).removeClass('fullscreen');
+      } else {
+        $(prevDiv).trigger('click');
+        $(currentAnimal).addClass('square');
+        $(currentAnimal).removeClass('fullscreen');
+      }
+    $('#heartid').hide(1).delay(300).show(1);
+});
 
 /* ---Header Fading--- */
-  $('#header').fadeTo(5000,1).fadeOut(1000);
+$(window).ready(function(){
+    setTimeout(function(){ $('#header').fadeOut() }, 5000);
+  });
 /* ---Header Appear when Scroll--- */
-  $(window).scroll(function() {
-  if ($(this).scrollTop() > 250 && $(this).scrollTop() < 1250) {
-    $('#header').fadeIn();}
-  else {
-    $('#header').fadeTo(3000,1).fadeOut(1000); }
-}); 
+$(window).scroll(function() {
+    $('#header').fadeIn(500);
+    setTimeout(function(){ $('#header').fadeOut() }, 3000);
+});
 
   /* ---Modal--- */
 
 $(".modal-close").click (function() {
-  $("#playModal").addClass("displayNone");
-  $('#mute').addClass('displayNone');
+  $("#playModal, #mute").addClass("displayNone");
   $('#unmute').removeClass('displayNone');
 });
 

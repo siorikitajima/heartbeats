@@ -2,11 +2,12 @@
 <html>
 <head>
 <title>Heartbeats</title>
-<link href="https://fonts.googleapis.com/css?family=Lora|Pinyon+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Pinyon+Script&display=swap" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="style.css" />
 <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
+
 <!--Header-->
 <div id="header">
   <div id="headerLeft">
@@ -20,30 +21,30 @@
     </nav>
     <a href="https://www.patternbased.com" target="_blank">
       <img id="pbLogo" src="images/PatternBasedArt-Logo-banner.svg"></a>
-  </div>
-  <div>
-    <img id="mute" src="images/mute.svg">
-    <img id="unmute" class="displayNone" src="images/unmute.svg">
-  </div>
-  </div>
-  <div class="clear"></div>
+    </div>
+    <!--Mute/Unmute-->
+    <div>
+        <img id="mute" src="images/mute.svg">
+        <img id="unmute" class="displayNone" src="images/unmute.svg">
+    </div>
+</div>
+<div class="clear"></div>
   
-  <!--Close / Menu Buttons-->
-  <div id="rightBtn" class="btns displayNone"><img  src="images/closebtn.svg"></div>
-  
-  <!--Next Prev Arrows-->
+<!--Close / Menu Buttons-->
+    <div id="rightBtn" class="btns displayNone"><img  src="images/closebtn.svg"></div>
+<!--Next Prev Arrows-->
   <div id="leftArrow" class="arrows displayNone"><img  src="images/leftarrow.svg"></div>
   <div id="rightArrow" class="arrows displayNone"><img  src="images/rightarrow.svg"></div>
   
   <!--The Heart-->
-    <div id="heartPosition" class="displayNone"><svg version="1.1" id="heartid" class="heart"
-     viewBox="0 0 792 612" xml:space="preserve">
+    <div id="heartPosition" class="displayNone"><svg version="1.1" id="heartid" class="heart" viewBox="0 0 792 612" xml:space="preserve">
     <path id="heartPath" d="M121.65,218.8c-0.41-20.19,2.66-39.87,9.38-58.88c12.65-35.82,36.09-62.16,71.27-76.71
       c42.75-17.68,86.31-19.86,129.86-2.46c24.49,9.78,44.79,25.48,61.19,46.1c2.79,3.51,4.12,3.95,7.2,0.14
       c26.61-32.9,60.99-52.58,103.07-56.86C552,65.2,594.2,80.1,628.54,114.75c32.29,32.58,46.67,72.42,43.51,118.11
       c-1.56,22.6-10.08,43.37-20.68,63.2c-21.09,39.47-49.59,73.32-80.62,105.16c-51.23,52.56-108.04,98.49-167.85,140.84
       c-4.38,3.1-7.44,3.07-11.85,0.05c-64.42-44.03-125.09-92.56-178.74-149.42c-28.45-30.16-54.23-62.41-72.52-99.95
-      C128.44,269.45,120.49,245.22,121.65,218.8z"/></svg></div>
+      C128.44,269.45,120.49,245.22,121.65,218.8z"/></svg>
+    </div>
   
   <!-- The Modal -->
   <div id="playModal" class="modal">
@@ -52,31 +53,26 @@
       <h1 class="hbTitle">Heartbeats.</h1>
       <p class="body-text">Sound is a part of the experience. </br>Please enable your speaker or headphone, and click &hearts; below.</p>
       <p class="animal-loading-status">Loading Animals...</p>
-      <div class="show-starter displayNone">
-        <img
-          id="playHeart"
-          src="images/heart-play.svg"
-        />
-        <span class="modal-loading-status displayNone">
-          <span>Loading:</span>
-          <span id="loadingProgress">0 / 0</span>
-        </span>
-        <span class="modal-close">Play muted for now</span>
-      </div>
+        <div class="show-starter displayNone">
+            <img
+            id="playHeart"
+            src="images/heart-play.svg"
+            />
+            <span class="modal-loading-status displayNone">
+            <span>Loading:</span>
+            <span id="loadingProgress">0 / 0</span>
+            </span>
+            <span class="modal-close">Play muted for now</span>
+        </div>
     </div>
   </div>
 
   <!--Animals Start Here-->  
-  <div
-    class="gridwrapper"
-    id="grid-wrapper"
-  >
-  </div>
-
+<div class="gridwrapper" id="grid-wrapper">
 <script
   id="animal-template"
-  type="x/tempalte"
->
+  type="x/tempalte">
+  
   <div
     class="square {{id}}"
     data-heart-top="{{heartTop}}"
@@ -117,6 +113,7 @@
     </table>
   </div>
 </script>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
