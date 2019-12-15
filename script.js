@@ -60,9 +60,8 @@ var animalDataHandler = function(animals) {
   }
 
   var handleAllOggsLoaded = function () {
-    console.log('All the Oggs loaded')
     $("#playModal").addClass("displayNone");
-    startAll()
+    startAll();
   }
 
   var animalsLoaded = 0
@@ -90,18 +89,15 @@ var animalDataHandler = function(animals) {
     })
   });
 
-
-  $('.animal-loading-status').addClass('displayNone')
-  $('.show-starter').removeClass('displayNone')
-
-}
+  $('.animal-loading-status').addClass('displayNone');
+  $('.show-starter').removeClass('displayNone');
+};
 
 getJsonData(
   'animal_data.json',
   animalDataHandler
 );
 
-// This js works with index2.html without 'loopify2.js'
 /* --------- loopify --------- */
 (function() {
   function loopify(uri,cb) {
@@ -132,24 +128,19 @@ getJsonData(
       var source;
 
       function start() {
-
         // Stop if it's already playing
         stop();
-
         // Create a new source (can't replay an existing source)
         source = context.createBufferSource();
         source.connect(context.destination);
-
         // Set the buffer
         source.buffer = buffer;
         source.loop = true;
-
         // Play it
         source.start(0);
       }
       
       function stop() {
-
         // Stop and clear if it's playing
         if (source) {
           source.stop();
@@ -266,24 +257,19 @@ $(".modal-close").click (function() {
 
 /* --------- Loopify contoll with Modal & Mute/Unmute Btn --------- */
 
-document.getElementById("mute").addEventListener("click",function(){
-  $('#mute').addClass('displayNone');
-  $('#unmute').removeClass('displayNone');
-});
-document.getElementById("unmute").addEventListener("click",function(){
-  $('#unmute').addClass('displayNone');
-  $('#mute').removeClass('displayNone');
-});
-
 function handleOggReady(err,loop){
   if (err) {
     console.warn(err);
   }
   document.getElementById("mute").addEventListener("click",function(){
     loop.stop();
+    $('#mute').addClass('displayNone');
+    $('#unmute').removeClass('displayNone');
   });
   document.getElementById("unmute").addEventListener("click",function(){
     loop.start();
+    $('#unmute').addClass('displayNone');
+    $('#mute').removeClass('displayNone');
   });
 };
 

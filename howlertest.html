@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .buttons {
+            width: 200px;
+            height: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+            background-color:slategray;
+            color: beige;
+            font-family: monospace;
+            font-size: 16px;
+            padding: 20px;
+        }
+        .buttons:first-child {
+            margin-top: 100px;
+            background-color: cadetblue;
+        }
+        .buttons:hover {
+            background-color: steelblue;
+            transition-duration: 500ms;
+        }
+        .pauseSound {
+            background-color: palevioletred;
+        }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="howler.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var animalSound = [
+            {   name: 'elephant',
+                sound: new Howl({ src: ['sounds/elephant.ogg'], loop: true}),
+                color: '#43110A'
+            },
+            {
+                name: 'rabbit',
+                sound: new Howl({ src: ['sounds/rabbit.ogg'], loop: true}),
+                color: '#F19FA4'
+            },
+            {
+                name: 'hummingbird',
+                sound: new Howl({ src: ['sounds/hummingbird.ogg'], loop: true}),
+                color: '#F19FA4'
+            }
+        ];
+        $('#playAll').click(function(){
+            if($(this).hasClass('pauseSound')) {
+                for (i = 0; i < animalSound.length; i++) {
+                    animalSound[i].sound.pause();
+                }
+                $(this).html('PLAY');
+                $(this).removeClass('pauseSound');
+            } else {
+                $(this).addClass('pauseSound');
+                $(this).html('PAUSE');
+                for (i = 0; i < animalSound.length; i++) {
+                    animalSound[i].sound.play();
+                    animalSound[i].sound.volume(0.7);
+                }
+            }
+        });
+        $('.animalButtons').click(function(){
+            var animalNumber = $(this).attr('id');
+            for (i = 0; i < animalSound.length; i++) {
+                if(i == animalNumber) {
+                    animalSound[i].sound.volume(1.0);
+                } else {
+                    animalSound[i].sound.fade(1.0, 0.2, 500);
+                }
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="buttons" id="playAll">PLAY</div>
+    <div class="buttons animalButtons" id="0">Elephant</div>
+    <div class="buttons animalButtons" id="1">Rabbit</div>
+    <div class="buttons animalButtons" id="2">Hummingbird</div>
+</body>
+</html>

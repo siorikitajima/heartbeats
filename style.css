@@ -276,84 +276,111 @@ image.imgclick {
 /* ---Individual Animals--- */
 .bluewhale {
     background: #192768;
+    fill: #192768;
     animation-duration: 6.66s;}
 .deserttortoise {
     background: #5D6EA4;
+    fill: #5D6EA4;
     animation-duration: 5s;}
 .elephant {
     background: #43110A;
+    fill: #43110A;
     animation-duration: 2s;}
 .alligator  {
     background: #024E91;
+    fill: #024E91;
     animation-duration: 1.87s;}
 .horse {
     background: #C94741;
+    fill: #C94741;
     animation-duration: 1.76s;}
 .dolphin {
     background: #4288B3;
+    fill: #4288B3;
     animation-duration: 1.5s;}
 .ox {
     background: #821955;
+    fill: #821955;
     animation-duration: 1.2s;}
 .brownbear {
     background: #7A4034;
+    fill: #7A4034;
     animation-duration: 1.09s;}   
 .giraffe {
     background: #B78B3D;
+    fill: #B78B3D;
     animation-duration: 0.92s;}
 .dairycow {
     background: #6A0100;
+    fill: #6A0100;
     animation-duration: 0.92s;}
 .human {
     background: #AF2A23;
+    fill: #AF2A23;
     animation-duration: 0.83s;}
 .goat {
     background: #A2703D;
+    fill: #A2703D;
     animation-duration: 0.8s;}
 .sheep {
     background: #DEB771;
+    fill: #DEB771;
     animation-duration: 0.8s;}
 .pig {
     background: #9C2336;
+    fill: #9C2336;
     animation-duration: 0.75s;}
 .dog {
     background: #D45066;
-    animation-duration: 0.67s;}
+    fill: #D45066;
+    animation-duration: 0.46s;}
 .cat {
     background: #A6597A;
+    fill: #A6597A;
     animation-duration: 0.46s;}
 .pigeon {
     background: #96975D;
+    fill: #96975D;
     animation-duration: 0.32s;}
 .duck {
     background: #5D9776;
+    fill: #5D9776;
     animation-duration: 0.31s;}
 .monkey {
     background: #F47C76;
+    fill: #F47C76;
     animation-duration: 0.31s;}
 .wildturkey {
     background: #016761;
+    fill: #016761;
     animation-duration: 0.3s;}
 .rabbit {
     background: #F19FA4;
+    fill: #F19FA4;
     animation-duration: 0.29s;}
 .chicken {
     background: #81BAA9;
+    fill: #81BAA9;
     animation-duration: 0.22s;}
 .buzzard {
     background: #5A6B41;
+    fill: #5A6B41;
     animation-duration: 0.2s;}
 .americancrow {
     background: #002224;
+    fill: #002224;
     animation-duration: 0.15s;}
 .mouse {
     background: #EDA56C;
+    fill: #EDA56C;
     animation-duration: 0.1s;}
 .canary {
     background: #99B87F;
+    fill: #99B87F;
     animation-duration: 0.06s;}
 .hummingbird {
     background: #38A2A0;
+    fill: #38A2A0;
     animation-duration: 0.04s;}
 .etruscanshrew {
     background: #D58E9F;
