@@ -1,13 +1,9 @@
 /* ------------------Global------------------ */
-body {  margin: 0; padding: 0; text-align: center; background: #dddddd ;}
-.body-text {
-  font-size: 1em;
-  text-decoration: none;
-  line-height: 1.5em;
-  font-family: 'Lora', serif;
-  color: #666666;
-  font-style: none;
-  margin:0;}
+body {  
+  width: 100%;
+  height: 100%;
+  margin: 0; padding: 0; 
+  text-align: center; background: #dddddd ;}
 .displayNone {
   display: none;}
 .displayBlock {
@@ -19,12 +15,19 @@ body {  margin: 0; padding: 0; text-align: center; background: #dddddd ;}
 #header {
   height: 60px;
   width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: fixed;
   top:0;
+  z-index: 900;
+  transition: opacity 1000ms ease-in-out;
+  }
+#headerMain {
+  display: block;
+  width: 100%;
+  height: 100%;
   background: #efefef;
   color: #666666;
-  z-index: 900;}
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 #headerLeft {
   float: left;
   margin: 0 20px 0 40px;
@@ -42,10 +45,12 @@ body {  margin: 0; padding: 0; text-align: center; background: #dddddd ;}
   position: absolute;
   top: 55%;
   transform: translate(0, -50%);}
-#pbLogo {
-  height: 60px;
-  margin: 0;
-  display: inline-block;}
+#menuIcon {
+  height: 50px;
+  margin-top: 5px;
+  display: none;
+  cursor: pointer;
+}
 
 nav {
     width: 300px;
@@ -67,6 +72,66 @@ nav a {
 nav a:hover {
   opacity: 0.5;
   transition-duration: 500ms;}
+
+#mobileNav {
+  width: 100%;
+  height: 120px;
+  margin: 50px 0 0 0;
+  padding: 10px 0 0 0;
+  background-color: rgb(228, 223, 215);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  top: -130px;
+  z-index: -1;
+  display: none;
+}
+
+#mobileNav a {
+  height: 20px;
+  display: block;
+  padding: 10px;
+  border-top:rgba(65, 65, 65, 0.3) 1px solid;
+  font-family: 'Lora', serif;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #666666;
+}
+#mobileNav a:hover {
+  background-color: rgba(65, 65, 65, 0.1);
+}
+
+@media(max-width: 960px) {
+  nav {
+    display: none;
+  }
+  #headerLeft, #headerRight {
+    margin: 0 20px;
+  }
+  .hbTitle {
+    font-size: 1.8em;
+  }
+  #menuIcon {
+    display: inline;
+  }
+}
+
+@media(max-width: 480px) {
+  .hbTitle {
+    font-size: 1.6em;
+  }
+  #header {
+    height: 50px;
+  }
+  #menuIcon {
+    height: 40px;
+  }
+}
+
+@media(max-width: 410px) {
+  .hbTitle {
+    font-size: 1.5em;
+  }
+}
   
 /* ---Mute/Unmute button--- */
 #mute, #unmute {
@@ -98,9 +163,20 @@ nav a:hover {
   grid-row: 1 / 1;
   grid-column: 1 / 1;}
 
+  @media(max-width: 960px) {
+    .gridwrapper {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  @media(max-width: 480px) {
+    .gridwrapper {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+  }
+
 /* ------------------Animal Content------------------ */
 .animal {
-  max-width:90%;
+  max-width:90vw;
   margin: 0;
   padding: 0;
   color: #ffffff;
@@ -117,8 +193,10 @@ nav a:hover {
   width: 100px;
   height: auto;}
 .aniinfo {  
-  height: 100px;
-  width: auto;
+  height: auto;
+  width: 340px;
+  max-width: 80vw;
+  margin-top: 20px;
   display: none;}
 .aniinfo table {
   font-size: 0.9em;
@@ -128,12 +206,35 @@ nav a:hover {
   border-bottom: 1px dashed #FFFFFF;}
 .aniinfo table td{
   font-size: 2em;
-  padding-top:10px;
-  font-family: 'Pinyon Script', cursive;}
+  padding-top:16px;
+  font-family: 'Pinyon Script', cursive;
+  line-height: 0.9em;
+}
 .aniinfo table td span{
   font-size: 0.4em;
   font-family: 'Lora', serif;
   margin: 0 3px;}
+
+  @media(max-width: 480px) {
+    .aniname {
+      font-size:1.2em;
+    }
+    .aniimg img {
+      width: 80px;
+    }
+    .aniinfo table {
+      font-size: 0.8em;
+    }
+    .aniinfo table td{
+      font-size: 1.8em;
+    }
+    .aniinfo table th{
+      padding: 10px 10px;
+    }
+    .aniinfo table td span{
+      font-size: 0.5em;
+    }
+  }
 
 /* Grid <> fullscreen Animation */
 .square {
@@ -158,17 +259,22 @@ nav a:hover {
   transition-duration: 150ms;}
 
 /* Animals @ fullscreen */
+.fullscreen .animal {
+  position: fixed;
+}
+
 .fullscreen .aniname {
   display: inline-block;
-  height:50px;
+  height: 50px;
   width: auto;
-  padding:20px 0 30px 0;
+  padding:0 0 25px 0;
   font-size:2em;}
 .fullscreen .aniimg img {
   width: 500px;
   height: auto;
-  max-width: 90vw;
-  transition-duration: 150ms;} 
+  max-width: 75vw;
+  transition-duration: 150ms;
+} 
 .fullscreen .aniinfo { display: inline-block; }
 image.imgclick {
   display:inline-block;
@@ -177,14 +283,26 @@ image.imgclick {
 /* The Heart */
 #heartPosition {
   width: 500px;
-  max-width: 90vw;
+  max-width: 75vw;
   height: 333px;
+  max-height: 50vw;
   margin: 0;
   position: fixed;
-  top: 50%;
+  top: calc(50% - 42px);
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 200;}
+  z-index: 200;
+}
+@media(max-width: 480px) {
+  #heartPosition {
+    top: calc(50% - 27px);
+  }
+}
+@media(max-width: 410px) {
+  #heartPosition {
+    top: calc(50% - 34px);
+  }
+}
 .heart {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -209,8 +327,8 @@ image.imgclick {
   background-color: #ffffff;
   width: 300px;
   height: 300px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: calc(90vw - 100px);
+  max-height: calc(90vw - 100px);
   border-radius: 200px;
   margin: 0;
   position: fixed;
@@ -219,6 +337,10 @@ image.imgclick {
   transform: translate(-50%, -50%);
   padding: 50px;
   border: none;}
+
+.modal-content .hbTitle {
+  margin-block-end: 0em;
+  }
 #playHeart {
   width: 120px;
   height: 120px;
@@ -228,9 +350,16 @@ image.imgclick {
   animation-iteration-count: infinite;
   animation-duration: 0.83s;
   }
-.modal-close,
-.modal-loading-status,
-.animal-loading-status {
+p.modal-text {
+    font-size: 0.9em;
+    text-decoration: none;
+    line-height: 1.5em;
+    font-family: 'Lora', serif;
+    color: #666666;
+    font-style: none;
+    margin:5px 0;
+  }
+.modal-close {
   color: #aaa;
   margin: 0 auto;
   font-size: 0.8em;
@@ -246,7 +375,33 @@ image.imgclick {
   text-decoration: none;
   cursor: pointer;
 }
+@media(max-width: 480px) {
+  .modal-content .hbTitle {
+    font-size: 1.8em;
+  }
+  .modal-content {
+    max-width: calc(90vw - 60px);
+    max-height: calc(90vw - 60px);
+    padding: 30px;
+  }
+  #playHeart {
+    max-width: 30vw;
+    max-height: 30vw;
+  }
+  .modal-close {
+    font-size: 0.7em;
+  }
+}
 
+@media(max-width: 410px) {
+  .modal-content .hbTitle {
+
+  }
+  #playHeart {
+    max-width: 25vw;
+    max-height: 25vw;
+  }
+}
 /* Next Prev Arrows */ 
 .arrows, .btns {
   width: 60px;
@@ -264,6 +419,17 @@ image.imgclick {
   transition-duration: 200ms;}
 #leftArrow {left: 0;}
 #rightArrow, #rightBtn {right:0;}
+
+@media(max-width: 960px) {
+  .arrows, .btns {
+    width: 50px;
+    height: 50px;
+  }
+  .arrows {  top: calc(100% - 70px);}
+  .arrows:hover, .btns:hover {
+    opacity: 0.2;
+  }
+}
 
 /* Blinking Animation */
 @keyframes blink-animation {

@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Heartbeats</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Lora|Pinyon+Script&display=swap" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -11,6 +13,12 @@
 
 <!--Header-->
 <div id="header">
+  <div id="mobileNav">
+    <a href="/html/">Analytics</a>
+    <a href="/html/">Sources</a>
+    <a href="/html/">About</a>
+  </div>
+  <div id="headerMain">
   <div id="headerLeft">
     <h1 id="headerLogo" class="hbTitle">Heartbeats.</h1>
   </div>
@@ -20,16 +28,18 @@
       <a href="/html/">Sources</a>
       <a href="/html/">About</a>
     </nav>
-    <a href="https://www.patternbased.com" target="_blank">
-      <img id="pbLogo" src="images/PatternBasedArt-Logo-banner.svg"></a>
-    </div>
+  <img id="menuIcon" src="images/menuIcon.svg">
+  </div>
     <!--Mute/Unmute-->
     <div>
         <img id="mute" src="images/mute.svg">
         <img id="unmute" class="displayNone" src="images/unmute.svg">
     </div>
+  </div>
 </div>
 <div class="clear"></div>
+
+
   
 <!--Close / Menu Buttons-->
     <div id="rightBtn" class="btns displayNone"><img  src="images/closebtn.svg"></div>
@@ -52,7 +62,7 @@
     <!-- Modal content -->
     <div class="modal-content">
       <h1 class="hbTitle">Heartbeats.</h1>
-      <p class="body-text">Sound is a part of the experience. </br>Please enable your speaker or headphone, and click &hearts; below.</p>
+      <p class="modal-text">Sound is a part of the experience. </br>Please enable your speaker or<br /> headphone, and click &hearts; below.</p>
         <div class="show-starter displayNone">
             <img
             id="playHeart"
@@ -82,17 +92,12 @@
     id="{{id}}"
     data-animalNumber="{{animalNumber}}"
   >
-    <table class="animal">
-      <tr>
-        <td class="aniname">{{name}}</td>
-      </tr>
-      <tr>
-        <td class="aniimg">
+    <div class="animal">
+      <div class="aniname">{{name}}</div>
+      <div class="aniimg">
           <img src="images/{{id}}.svg">
-        </td>
-      </tr>
-      <tr>
-        <td class="aniinfo">
+      </div>
+      <div class="aniinfo">
           <table>
             <thead>
             <tr>
@@ -103,15 +108,14 @@
             </thead>
             <tbody>
             <tr>
-              <td>{{beatsPerMinute}}<span>BPM</span></td>
-              <td>{{years}}<span>years</span></td>
-              <td>{{beatsPerLife}}m<span>total heartbeats</span></td>
+              <td>{{beatsPerMinute}}<br/><span>BPM</span></td>
+              <td>{{years}}<br/><span>years</span></td>
+              <td>{{beatsPerLife}}m<br/><span>total heartbeats</span></td>
             </tr>
             </tbody>
           </table>
-        </td>
-      </tr>
-    </table>
+      </div>
+    </div>
   </div>
 </script>
 </div>
