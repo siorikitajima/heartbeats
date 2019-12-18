@@ -183,7 +183,8 @@ nav a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);}
+  transform: translate(-50%, -50%);
+}
 .aniname {
   font-size:1.5em;
   padding-bottom: 20px;
@@ -245,7 +246,8 @@ nav a:hover {
   animation-name: blink-animation;
   animation-iteration-count: infinite;
   transition-duration: 50ms;
-  position: relative;}
+  position: relative;
+}
 .fullscreen {
   display: block;
   z-index: 100; 
@@ -408,14 +410,14 @@ p.modal-text {
   height: 60px;
   z-index: 300;
   position: fixed;
-  opacity: 0.2;
+  opacity: 0.4;
   overflow: hidden;}
 .arrows {  top: calc(50% - 30px);}
 .btns {  top: 80px;}
 .arrowsvisible, .btnsvisible {
   visibility: visible;
   transition-delay: 0.2s;}
-.arrows:hover, .btns:hover {opacity: 0.6;
+.arrows:hover, .btns:hover {opacity: 0.7;
   transition-duration: 200ms;}
 #leftArrow {left: 0;}
 #rightArrow, #rightBtn {right:0;}
@@ -427,7 +429,7 @@ p.modal-text {
   }
   .arrows {  top: calc(100% - 70px);}
   .arrows:hover, .btns:hover {
-    opacity: 0.2;
+    opacity: 0.4;
   }
 }
 
@@ -440,6 +442,8 @@ p.modal-text {
 	100% {opacity: 1}}
 
 /* ---Individual Animals--- */
+
+
 .bluewhale {
     background: #192768;
     fill: #192768;
@@ -552,3 +556,7 @@ p.modal-text {
     background: #D58E9F;
     fill: #D58E9F;
     animation-duration: 0.03s;}
+
+    .square, .fullscreen {
+      background-image: url("images/45-degree-fabric-light.png");
+      }
