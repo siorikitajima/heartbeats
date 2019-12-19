@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg id="#rabbit" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 <style type="text/css">
 	.sttest{fill:#23a7e2;}
 	.st0{fill:#FFFFFF;}
+	.st1{opacity:0.7;}
 
 	@keyframes leftEarAnimation {
     0%, 10% {transform: translate(0,0) rotate(0deg);}
-    20%, 50% {transform: translate(3%,-3%) rotate(4deg);}
+    30%, 50% {transform: translate(2%,-2%) rotate(4deg);}
     60%, 100% {transform: translate(0,0) rotate(0deg);}
   	}
   	#leftEar {
-	  animation:leftEarAnimation 4s infinite ease-in-out
+	  animation:leftEarAnimation 4s infinite ease-in-out;
+	  transform-origin: bottom left;
+	  transform-box: fill-box;
 	}
 
 	@keyframes rightEarAnimation {
     0%, 20% {transform: translate(0,0) rotate(0deg);}
-    40%, 70% {transform: translate(3%,-3%) rotate(4deg);}
-    80%, 100% {transform: translate(0,0) rotate(0deg);}
+    40%, 50% {transform: translate(2%, 1%) rotate(5deg);}
+    70%, 100% {transform: translate(0,0) rotate(0deg);}
   	}
   	#rightEar {
-	  animation:rightEarAnimation 4s infinite ease-in-out
+	  animation:rightEarAnimation 4s infinite ease-in-out;
+	  transform-origin: bottom center;
+	  transform-box: fill-box;
 	}
 
 	@keyframes faceAnimation {
     0%, 20% {transform: translate(0,0) rotate(0deg);}
-    40%, 70% {transform: translate(5%,-3%) rotate(5deg);}
+    50%, 70% {transform: translate(3%,0) rotate(4deg);}
     80%, 100% {transform: translate(0,0) rotate(0deg);}
   	}
   	#face {
-	  animation:faceAnimation 7s infinite ease-in-out
+	  animation:faceAnimation 7s infinite ease-in-out;
+	  transform-origin: bottom center;
+	  transform-box: fill-box;
 	}
 
 	@keyframes tailAnimation {
-    0%, 20% {transform: translate(0,0) rotate(0deg);}
-    40%, 50% {transform: translate(1%,-1%) rotate(1deg);}
-    80%, 100% {transform: translate(0,0) rotate(0deg);}
+    0%, 10% {transform: translate(0,0) rotate(0deg);}
+    20%, 25% {transform: translate(2%,0) rotate(2deg);}
+    30%, 40% {transform: translate(0,0) rotate(0deg);}
+	55%, 70% {transform: translate(2%,0) rotate(2deg);}
+    90%, 100% {transform: translate(0,0) rotate(0deg);}
   	}
   	#tail {
-	  animation:tailAnimation 3s infinite ease-in-out
-	}
-
-	#rabbit {
-		  box-shadow: 1px 2px 4px #888888;
+	  animation:tailAnimation 3s infinite ease-in-out;
+	  transform-origin: bottom left;
+	  transform-box: fill-box;
 	}
 
 </style>
@@ -60,11 +66,11 @@
 <g>
 	<g  style="filter:url(#dropshadow)">
 		<g>
-			<path class="st0" d="M179.6,309.3c-9.1,9.4-22.4,13-34.3,18.4c-1,0.4-2,0.9-2.6,1.9c-1.5,2.5,1.4,5.2,4,6.4
+			<path class="st0 st1" d="M179.6,309.3c-9.1,9.4-22.4,13-34.3,18.4c-1,0.4-2,0.9-2.6,1.9c-1.5,2.5,1.4,5.2,4,6.4
 				c10.7,4.8,23.2,4.9,34.6,1.8s21.6-9.4,30.8-16.8L179.6,309.3z"/>
 		</g>
 		<g>
-			<path class="st0" d="M344.5,351.7c-10.6,2.7-21.4,4.7-32.2,6.2c-6.1,0.8-13.1,1.8-18.1-1.1c-2.9-1.6-5.2-6.3-1.4-10.5
+			<path class="st0 st1" d="M344.5,351.7c-10.6,2.7-21.4,4.7-32.2,6.2c-6.1,0.8-13.1,1.8-18.1-1.1c-2.9-1.6-5.2-6.3-1.4-10.5
 				s14.5-6.2,23.3-6.9c-3.3-3.7-7.8-6.1-11-9.9s-4.6-9.9-1.1-13.4l39.2-5.3l26.3,35.7L344.5,351.7z"/>
 		</g>
 		<g id="face">
