@@ -310,7 +310,7 @@ image.imgclick {
   transform: translate(-50%, -50%);
   margin:0;  }
 #heartPath {
-  animation-name: blink-animation;
+  animation-name: heart-animation;
   animation-iteration-count: infinite;}
 
 /* The Modal BG */
@@ -348,7 +348,7 @@ image.imgclick {
   height: 120px;
   margin: 0 auto;
   display: block;
-  animation-name: blink-animation;
+  animation-name: heart-animation;
   animation-iteration-count: infinite;
   animation-duration: 0.83s;
   }
@@ -437,9 +437,16 @@ p.modal-text {
 @keyframes blink-animation {
 	0% {opacity: 1}
 	70%{opacity: 1}
-	80% {opacity: 0.5}
-	90% {opacity: 0.5}
-	100% {opacity: 1}}
+	80% {opacity: 0.8}
+	90% {opacity: 0.8}
+  100% {opacity: 1}}
+  
+@keyframes heart-animation {
+  0% {opacity: 1}
+  70%{opacity: 1}
+  80% {opacity: 0.5}
+  90% {opacity: 0.5}
+  100% {opacity: 1}}
 
 /* ---Individual Animals--- */
 

@@ -6,6 +6,11 @@
 	.st0{fill:#FFFFFF;}
 	.st1{opacity:0.7;}
 
+	#leftEar, #rightEar, #face, #tail {
+	  transform-box: fill-box;
+	  -webkit-backface-visibility: hidden;
+	}
+
 	@keyframes leftEarAnimation {
     0%, 10% {transform: translate(0,0) rotate(0deg);}
     30%, 50% {transform: translate(2%,-2%) rotate(6deg);}
@@ -14,7 +19,6 @@
   	#leftEar {
 	  animation:leftEarAnimation 4s infinite ease-in-out;
 	  transform-origin: bottom left;
-	  transform-box: fill-box;
 	}
 
 	@keyframes rightEarAnimation {
@@ -25,7 +29,6 @@
   	#rightEar {
 	  animation:rightEarAnimation 4s infinite ease-in-out;
 	  transform-origin: bottom right;
-	  transform-box: fill-box;
 	}
 
 	@keyframes faceAnimation {
@@ -36,7 +39,6 @@
   	#face {
 	  animation:faceAnimation 9s infinite ease-in-out;
 	  transform-origin: bottom left;
-	  transform-box: fill-box;
 	}
 
 	@keyframes tailAnimation {
@@ -49,7 +51,6 @@
   	#tail {
 	  animation:tailAnimation 3s infinite ease-in-out;
 	  transform-origin: top right;
-	  transform-box: fill-box;
 	}
 
 </style>
