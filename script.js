@@ -83,7 +83,7 @@ $('.chart-animals').mouseenter(function(){
     });
 });
 
-$('.chart-animals').mouseleave(function(){
+$('.chart-animals').delay(200).mouseleave(function(){
   $('#verticalLine').css({
     'display':'none'
   });
