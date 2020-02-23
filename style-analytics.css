@@ -1,0 +1,178 @@
+#analytics {
+    width: calc(100vw - 200px);
+    height: calc(100vh - 200px);
+    margin: 0; padding: 100px; 
+    text-align: center; background: #f3efef ;
+    position: fixed;
+    bottom: -100vh;
+    left: 0;
+    z-index: 800;
+}
+
+#chartWrap, #bordersWrap {
+    width: 70vw;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#chartWrap {
+    border-left: #666666 1px solid;
+    border-bottom: #666666 1px solid;
+    background-image: url(images/chart-onebillion.svg);
+    background-size: 100% 100%;
+}
+
+#axisYTitle {
+    width: 40px;
+    height: 50vh;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    z-index: -1;
+}
+
+#axisXTitle {
+    width: 70vw;
+    height: 20px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+#axisYTitle p {
+    font-family: Lora;
+    font-size: 0.8em;
+    text-align: right;
+    color: #444444;
+    margin: 0 10px 0 0;
+}
+
+#axisYTitle p.middleAxisY {
+    margin: calc(25vh - 30px) 10px calc(25vh - 30px) 0;
+}
+
+#axisXTitle p {
+    font-family: Lora;
+    font-size: 0.8em;
+    display: inline-block;
+    color: #444444;
+    margin: 10px 0;
+}
+
+#axisXTitle p.middleAxisXone {
+    margin: 10px 0 10px 8vw;
+}
+
+#axisXTitle p.middleAxisXtwo {
+    margin: 10px 0 10px 5vw;
+}
+
+#axisXTitle p.middleAxisXthree {
+    margin: 10px 23vw;
+}
+
+#bordersWrap {
+    position: relative;
+}
+
+#verticalLine, #horizontalLine {
+    background-color: rgba(255,137,127,0.8);
+    position: absolute;
+    display: none;
+}
+
+#verticalLine {
+    width: 2px;
+    height: 100%;
+}
+
+.bubbles {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,137,127,1);
+    position: absolute;
+    top: 100%;
+    color: #FFFFFF;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.2em;
+    padding: 10px;
+    line-height: 2em;
+    z-index: 810;
+}
+
+.bubbles-life {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,137,127,1);
+    position: absolute;
+    color: #FFFFFF;
+    margin-left: -60px;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.2em;
+    padding: 10px;
+    line-height: 2em;
+}
+
+#horizontalLine {
+    width: 100%;
+    height: 2px;
+}
+
+.chart-animals {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    opacity: 0.5;
+    transform: translate(0 , 30px);
+}
+
+.chart-animals:hover {
+    opacity: 1;
+}
+
+#dotInfo {
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    background-color: rgba(255,137,127,1);
+    text-align: left;
+}
+
+#dotInfo img {
+    height: 8vh;
+    width: 8vh;
+    display: block;
+    padding: 20px;
+    float: left;
+    border-right: #FFFFFF dashed 1px;
+}
+
+#dotInfo p {
+    color: #FFFFFF;
+    display: block;
+    text-indent: 20px;
+}
+
+.dotInfoLarge {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.4em;
+    line-height: 0;
+    margin-top: 40px;
+}
+
+.dotInfoSmall span {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.8em;
+    line-height: 0;
+}
+
+.dotInfoSmall {
+    font-family: Lora;
+}

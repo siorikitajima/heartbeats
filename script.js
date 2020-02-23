@@ -27,6 +27,76 @@ var animalData = JSON.parse(animalRequest.responseText);
   
   document.getElementById("grid-wrapper").innerHTML = listHtml;
 
+// Generate Dots for Analytics
+
+var dotTemplate = document.getElementById("template-dots");
+var dotTemplateHtml = dotTemplate.innerHTML;
+var listHtml = "";
+
+$('#dotInfo').hide();
+
+for (var key in animalData) {
+
+  listHtml += dotTemplateHtml
+      .replace(/{{animalId}}/g, animalData[key]["id"])
+      .replace(/{{animalNumber}}/g, animalData[key]["animalNumber"])
+      .replace(/{{lifePercent}}/g, animalData[key]["years"])
+      .replace(/{{bpmPercent}}/g, animalData[key]["bpmPercent"])
+}
+
+document.getElementById("chartWrap").innerHTML = listHtml;
+
+// Hover on an Animal in Analytics
+
+$('.chart-animals').mouseenter(function(){
+  var animalNumber = $(this).attr('data-animalNumber');
+  var lifePercentValue = animalData[animalNumber]["years"];
+  var bpmPercentValue = animalData[animalNumber]["bpmPercent"];
+  var bpmPercent = "calc(" + bpmPercentValue + "% + 30px)";
+  var bpmPercentString = bpmPercentValue + "%";
+  var lifePercent = lifePercentValue + "%";
+  var lifePercentString = "calc(" + lifePercentValue + "% - 30px)";
+  var animalID = animalData[animalNumber]["id"];
+  var animalName = animalData[animalNumber]["name"];
+  var animalBPM = animalData[animalNumber]["beatsPerMinute"];
+  var animalBPL = animalData[animalNumber]["beatsPerLife"];
+  var dotInfoString = "<img src='images/static-animals/" + animalID + "_static.svg'><p class='dotInfoLarge'>" + animalName + "</p><p class='dotInfoSmall'>Heart Rate <span>" + animalBPM + "</span> BPM <span> / </span> Life Expectancy <span> " + lifePercentValue + " </span>years <span> / </span> Total Heartbeats per Life <span> " + animalBPL + " </span> beats</p>";
+  var bpmBubbleString = "<div class='bubbles'>" + animalBPM + "</div>";
+  var lifeBubbleString = "<div class='bubbles-life'>" + lifePercentValue + "</div>";
+  $('#verticalLine').css({
+    'right': bpmPercent,
+    'display':'block'
+  });
+  $('#verticalLine').after(bpmBubbleString);
+  $('#horizontalLine').css({
+    'bottom': lifePercent,
+    'display':'block'
+  });
+  $('#horizontalLine').before(lifeBubbleString);
+  $('#dotInfo').html(dotInfoString);
+  $('#dotInfo').fadeIn(100);
+  $('.bubbles').css({
+    'right': bpmPercentString
+  });
+  $('.bubbles-life').css({
+    'bottom': lifePercentString
+    });
+});
+
+$('.chart-animals').mouseleave(function(){
+  $('#verticalLine').css({
+    'display':'none'
+  });
+  $('.bubbles').hide();
+  $('.bubbles-life').hide();
+  $('#horizontalLine').css({
+    'display':'none'
+  });
+  $('#dotInfo').html('');
+  $('#dotInfo').fadeOut(100);
+});
+
+
 /////////////////////////////////////////// Sounds
 
   var animalSound = [
@@ -69,7 +139,8 @@ $(document).ready(function(){
     }
   });
 });
-  //* --------- Audio contoll with Modal & Mute/Unmute Btn --------- */
+
+//* --------- Audio contoll with Modal & Mute/Unmute Btn --------- */
 
   $("#mute").click (function() {
     Howler.mute(true);
@@ -124,7 +195,7 @@ var generateFullScreenAnimal = function(){
     $('#animalLife').html(animalLifeString);
     $('#animalTotal').html(animalTotalString);
 
-    // Sound for the Animal
+// Sound for the Animal
     for (i = 0; i < animalSound.length; i++) {
       if(i == animalNumberFullScreen) {
           animalSound[i].sound.volume(1.0);
@@ -136,7 +207,7 @@ var generateFullScreenAnimal = function(){
 
 $(document).on('click', '.square', generateFullScreenAnimal);
 
-// Left Arrow Button
+// Left / Preview Arrow Button
 
 var prevFullScreenAnimal = function(){
     var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber") - 1;
@@ -181,7 +252,7 @@ var prevFullScreenAnimal = function(){
 
 $('#leftArrow').on('click', prevFullScreenAnimal);
 
-// Right Arrow Button
+// Right / Next Arrow Button
 
 var nextFullScreenAnimal = function(){
     var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
@@ -250,6 +321,7 @@ var closeFullscreenAnimalSound = function() {
     closeFullscreenAnimal();
     closeFullscreenAnimalSound();
   });
+
 };
 animalRequest.send();
 
@@ -301,4 +373,24 @@ $(document).ready(function(){
         });
       }
     });
+  });
+
+  var openAnalytics = function() {
+    $('#analytics').css({
+      'bottom':'0',
+      'transition-duration':'300ms'
+    });
+    $('#rightBtnAnalytics').removeClass('displayNone');
+  };
+
+  var closeAnalytics = function() {
+    $('#analytics').css({
+      'bottom':'-100vh',
+      'transition-duration':'300ms'
+    });
+    $('#rightBtnAnalytics').addClass('displayNone');
+  };
+
+  $('#rightBtnAnalytics').click(function() {
+    closeAnalytics();
   });

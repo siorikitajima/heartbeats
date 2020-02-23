@@ -9,7 +9,8 @@
     "beatsPerMinute": 9,
     "years": 95,
     "beatsPerLife": 449,
-    "animalNumber": 0
+    "animalNumber": 0,
+    "bpmPercent" : 1
   },
   {
     "id": "deserttortoise",
@@ -21,7 +22,8 @@
     "beatsPerMinute": 12,
     "years": 60,
     "beatsPerLife": 378,
-    "animalNumber": 1
+    "animalNumber": 1,
+    "bpmPercent" : 3
   },
   {
     "id": "elephant",
@@ -33,7 +35,8 @@
     "beatsPerMinute": 30,
     "years": 60,
     "beatsPerLife": 946,
-    "animalNumber": 2
+    "animalNumber": 2,
+    "bpmPercent" : 6
   },
   {
     "id": "alligator",
@@ -45,7 +48,8 @@
     "beatsPerMinute": 32,
     "years": 40,
     "beatsPerLife": 673,
-    "animalNumber": 3
+    "animalNumber": 3,
+    "bpmPercent" : 7
   },
   {
     "id": "horse",
@@ -57,7 +61,8 @@
     "beatsPerMinute": 34,
     "years": 25,
     "beatsPerLife": 447,
-    "animalNumber": 4
+    "animalNumber": 4,
+    "bpmPercent" : 8
   },
   {
     "id": "dolphin",
@@ -69,7 +74,8 @@
     "beatsPerMinute": 40,
     "years": 45,
     "beatsPerLife": 946,
-    "animalNumber": 5
+    "animalNumber": 5,
+    "bpmPercent" : 9
   },
   {
     "id": "ox",
@@ -81,7 +87,8 @@
     "beatsPerMinute": 50,
     "years": 20,
     "beatsPerLife": 526,
-    "animalNumber": 6
+    "animalNumber": 6,
+    "bpmPercent" :11
   },
   {
     "id": "brownbear",
@@ -93,7 +100,8 @@
     "beatsPerMinute": 55,
     "years": 25,
     "beatsPerLife": 723,
-    "animalNumber": 7
+    "animalNumber": 7,
+    "bpmPercent" : 12
   },
   {
     "id": "giraffe",
@@ -105,7 +113,8 @@
     "beatsPerMinute": 65,
     "years": 25,
     "beatsPerLife": 854,
-    "animalNumber": 8
+    "animalNumber": 8,
+    "bpmPercent" : 14
   },
   {
     "id": "dairycow",
@@ -117,7 +126,8 @@
     "beatsPerMinute": 67,
     "years": 25,
     "beatsPerLife": 880,
-    "animalNumber": 9
+    "animalNumber": 9,
+    "bpmPercent" : 15
   },
   {
     "id": "human",
@@ -129,7 +139,8 @@
     "beatsPerMinute": 72,
     "years": 79,
     "beatsPerLife": 2989,
-    "animalNumber": 10
+    "animalNumber": 10,
+    "bpmPercent" : 16
   },
   {
     "id": "goat",
@@ -141,7 +152,8 @@
     "beatsPerMinute": 75,
     "years": 16,
     "beatsPerLife": 630,
-    "animalNumber": 11
+    "animalNumber": 11,
+    "bpmPercent" : 17
   },
   {
     "id": "sheep",
@@ -153,7 +165,8 @@
     "beatsPerMinute": 77,
     "years": 11,
     "beatsPerLife": 445,
-    "animalNumber": 12
+    "animalNumber": 12,
+    "bpmPercent" : 18
   },
   {
     "id": "pig",
@@ -165,7 +178,8 @@
     "beatsPerMinute": 80,
     "years": 8,
     "beatsPerLife": 336,
-    "animalNumber": 13
+    "animalNumber": 13,
+    "bpmPercent" : 19
   },
   {
     "id": "dog",
@@ -177,7 +191,8 @@
     "beatsPerMinute": 90,
     "years": 10,
     "beatsPerLife": 473,
-    "animalNumber": 14
+    "animalNumber": 14,
+    "bpmPercent" : 21
   },
   {
     "id": "cat",
@@ -189,7 +204,8 @@
     "beatsPerMinute": 130,
     "years": 10,
     "beatsPerLife": 683,
-    "animalNumber": 15
+    "animalNumber": 15,
+    "bpmPercent" : 30
   },
   {
     "id": "pigeon",
@@ -201,7 +217,8 @@
     "beatsPerMinute": 185,
     "years": 6,
     "beatsPerLife": 583,
-    "animalNumber": 16
+    "animalNumber": 16,
+    "bpmPercent" : 43
   },
   {
     "id": "duck",
@@ -213,7 +230,8 @@
     "beatsPerMinute": 190,
     "years": 7,
     "beatsPerLife": 749,
-    "animalNumber": 17
+    "animalNumber": 17,
+    "bpmPercent" : 44
   },
   {
     "id": "monkey",
@@ -225,7 +243,8 @@
     "beatsPerMinute": 205,
     "years": 20,
     "beatsPerLife": 2154,
-    "animalNumber": 18
+    "animalNumber": 18,
+    "bpmPercent" : 47
   },
   {
     "id": "wildturkey",
@@ -237,7 +256,8 @@
     "beatsPerMinute": 215,
     "years": 10,
     "beatsPerLife": 1130,
-    "animalNumber": 19
+    "animalNumber": 19,
+    "bpmPercent" : 50
   },
   {
     "id": "rabbit",
@@ -249,7 +269,8 @@
     "beatsPerMinute": 235,
     "years": 8,
     "beatsPerLife": 1050,
-    "animalNumber": 20
+    "animalNumber": 20,
+    "bpmPercent" : 54
   },
   {
     "id": "chicken",
@@ -261,7 +282,8 @@
     "beatsPerMinute": 275,
     "years": 8,
     "beatsPerLife": 1156,
-    "animalNumber": 21
+    "animalNumber": 21,
+    "bpmPercent" : 64
   },
   {
     "id": "buzzard",
@@ -273,7 +295,8 @@
     "beatsPerMinute": 300,
     "years": 16,
     "beatsPerLife": 2523,
-    "animalNumber": 22
+    "animalNumber": 22,
+    "bpmPercent" : 70
   },
   {
     "id": "americancrow",
@@ -285,7 +308,8 @@
     "beatsPerMinute": 380,
     "years": 8,
     "beatsPerLife": 1598,
-    "animalNumber": 23
+    "animalNumber": 23,
+    "bpmPercent" : 74
   },
   {
     "id": "mouse",
@@ -297,7 +321,8 @@
     "beatsPerMinute": 600,
     "years": 2,
     "beatsPerLife": 631,
-    "animalNumber": 24
+    "animalNumber": 24,
+    "bpmPercent" : 80
   },
   {
     "id": "canary",
@@ -309,7 +334,8 @@
     "beatsPerMinute": 1000,
     "years": 10,
     "beatsPerLife": 5256,
-    "animalNumber": 25
+    "animalNumber": 25,
+    "bpmPercent" : 84
   },
   {
     "id": "hummingbird",
@@ -321,7 +347,8 @@
     "beatsPerMinute": 1260,
     "years": 5,
     "beatsPerLife": 3311,
-    "animalNumber": 26
+    "animalNumber": 26,
+    "bpmPercent" : 90
   },
   {
     "id": "etruscanshrew",
@@ -333,6 +360,7 @@
     "beatsPerMinute": 1510,
     "years": 2,
     "beatsPerLife": 1587,
-    "animalNumber": 27
+    "animalNumber": 27,
+    "bpmPercent" : 95
   }
 ]

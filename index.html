@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Heartbeats.|PatternBased Art</title>
+  <title>Heartbeats. | PatternBased Art</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Lora|Pinyon+Script&display=swap" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="style-analytics.css" />
   <link rel="icon"  type="image/png"  href="images/patternBased_Logo_icon.png" />
   <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="howler.js"></script>
@@ -26,7 +27,7 @@
   <div id="headerRight">
     <nav>
       <a href="/html/">About</a>
-      <a href="/html/">Analytics</a>
+      <p onclick="openAnalytics()">Analytics</p>
       <a href="/">Home</a>
     </nav>
   <img id="menuIcon" src="images/menuIcon.svg">
@@ -52,6 +53,33 @@
         </div>
     </div>
   </div>
+
+<!-- Analytics -->
+<div id="analytics">
+  <div id="rightBtnAnalytics" class="btns displayNone"><img  src="images/closebtn_dark.svg"></div>
+  <div id="bordersWrap">
+    <div id="verticalLine"></div>
+    <div id="horizontalLine"></div>
+    <div id="dotInfo"></div>
+    <div id="axisYTitle">
+      <p>100</p>
+      <p class="middleAxisY">50</p>
+      <p>Yrs</p>
+    </div>
+    <div id="axisXTitle">
+      <p>1500</p>
+      <p class="middleAxisXone">1000</p>
+      <p class="middleAxisXtwo">300</p>
+      <p class="middleAxisXthree">150</p>
+      <p>BPM</p>
+    </div>
+  <div id="chartWrap">
+    <script id="template-dots" type="text/template">
+          <img class="chart-animals" id="{{animalId}}" src='images/dot-animals/{{animalId}}_dot.svg' style='bottom:{{lifePercent}}%; right:{{bpmPercent}}%;' data-animalNumber="{{animalNumber}}"/>
+    </script>
+  </div>
+  </div>
+</div>
   
 <!-- Full screen Animal -->
 <div class="fullscreen displayNone">
