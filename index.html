@@ -16,9 +16,9 @@
 <!--Header-->
 <div id="header">
   <div id="mobileNav">
-    <a href="/">Home</a>
-    <a href="/html/">Analytics</a>
-    <a href="/html/">About</a>
+    <p class="navAnimals">Heartbeats</p>
+    <p class="navAnalytics">Analytics</p>
+    <p class="navAbout">About</p>
   </div>
   <div id="headerMain">
   <div id="headerLeft">
@@ -26,9 +26,9 @@
   </div>
   <div id="headerRight">
     <nav>
-      <a href="/html/">About</a>
-      <p onclick="openAnalytics()">Analytics</p>
-      <a href="/">Home</a>
+      <p class="navAnimals">Heartbeats</p>
+      <p class="navAnalytics">Analytics</p>
+      <p class="navAbout">About</p>
     </nav>
   <img id="menuIcon" src="images/menuIcon.svg">
   </div>
@@ -61,7 +61,7 @@
     <div id="verticalLine"></div>
     <div id="horizontalLine"></div>
     <div id="dotInfo"></div>
-    <div id="axisYTitle">
+<!--    <div id="axisYTitle">
       <p>100</p>
       <p class="middleAxisY">50</p>
       <p>Yrs</p>
@@ -72,7 +72,7 @@
       <p class="middleAxisXtwo">300</p>
       <p class="middleAxisXthree">150</p>
       <p>BPM</p>
-    </div>
+    </div>-->
   <div id="chartWrap">
     <script id="template-dots" type="text/template">
           <img class="chart-animals" id="{{animalId}}" src='images/dot-animals/{{animalId}}_dot.svg' style='bottom:{{lifePercent}}%; right:{{bpmPercent}}%;' data-animalNumber="{{animalNumber}}"/>
@@ -105,7 +105,7 @@
 
   <!--Animal Info-->
             <div class="animalIinfo">
-                <div class="animaiNameFullScreen"></div>
+                <div class="animaiNameFullScreen"></div><img width="30" id="openAnalytics" src="images/analytics.svg">
                 <table>
                   <thead>
                   <tr>

@@ -26,6 +26,30 @@
     background-size: 100% 100%;
 }
 
+@media(max-width: 900px) {
+    #analytics {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+    }
+    #chartWrap, #bordersWrap {
+        width: 80vw;
+        height: calc(100vh - 250px);
+        min-width: unset;
+        top: unset;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    #bordersWrap {
+        margin: 170px 0;
+    }
+    #chartWrap {
+        border-left: none;
+        border-bottom: none;
+    }
+}
+
+/*
 #axisYTitle {
     width: 40px;
     height: 50vh;
@@ -72,9 +96,15 @@
 }
 
 #axisXTitle p.middleAxisXthree {
-    margin: 10px 23vw;
+    margin: 10px 21vw;
 }
 
+@media(max-width: 800px) {
+    #axisXTitle, #axisYTitle {
+        display: none;
+    }
+}
+*/
 #bordersWrap {
     position: relative;
 }
@@ -90,33 +120,60 @@
     height: 100%;
 }
 
-.bubbles {
-    width: 40px;
-    height: 40px;
+.bubbles, .bubbles-life {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: rgba(255,137,127,1);
     position: absolute;
-    top: 100%;
+    padding: 5px;
     color: #FFFFFF;
+}
+
+.bubbles {
+    top: 100%;
     font-family: 'Pinyon Script', cursive;
     font-size: 1.2em;
-    padding: 10px;
     line-height: 2em;
     z-index: 810;
 }
 
 .bubbles-life {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255,137,127,1);
-    position: absolute;
-    color: #FFFFFF;
     margin-left: -60px;
     font-family: 'Pinyon Script', cursive;
     font-size: 1.2em;
-    padding: 10px;
     line-height: 2em;
+}
+
+.bubbles::after, .bubbles-life::after {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    font-family: Lora;
+    font-size: 0.6em;
+    margin: 0 auto;
+}
+.bubbles::after {
+    content: "bpm";
+    margin-left: 14px;
+}
+
+.bubbles-life::after {
+    content: "years";
+    margin-left: 10px;
+}
+
+
+@media(max-width: 700px) {
+    .bubbles, .bubbles-life {
+        width: 30px;
+        height: 30px;
+        font-size: 1em;
+    }
+    .bubbles-life {
+        margin-left: -50px;
+        margin-bottom: 5px;
+    }
 }
 
 #horizontalLine {
@@ -158,26 +215,54 @@
 #dotInfo p {
     color: #FFFFFF;
     display: inline-block;
-    text-indent: 20px;
-    margin-top: 45px;
+    margin-left: 20px;
 }
 
 .dotInfoLarge {
     font-family: 'Pinyon Script', cursive;
     font-size: 2em;
+    margin-top: 45px;
     line-height: 0;
-    margin-top: 40px;
 }
 
 .dotInfoSmall {
     font-size: 0.9em;
+    font-family: Lora;
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+    width: 60%;
+    max-width: 500px;
+    line-height: 2em;
+    text-align: right;
 }
+
 .dotInfoSmall span {
     font-family: 'Pinyon Script', cursive;
     font-size: 1.6em;
     line-height: 0;
 }
 
-.dotInfoSmall {
-    font-family: Lora;
+@media(max-width: 900px) {
+    #dotInfo p {
+        display: block;
+        margin-left: 110px;
+    }
+    .dotInfoLarge {
+        font-size: 1.5em;
+        margin-top: 25px;
+        margin-bottom: 0;
+    }
+    .dotInfoSmall {
+        font-size: 0.8em;
+        float: none;
+        margin-top: 15px;
+        width: calc(100% - 130px);
+        max-width: 100%;
+        text-align: left;
+        line-height: 1.6em;
+    }
+    .dotInfoSmall span {
+        font-size: 1.2em;
+    }
 }
