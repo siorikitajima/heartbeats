@@ -266,3 +266,78 @@
         font-size: 1.2em;
     }
 }
+
+
+#aboutPanel {
+    width: 400px;
+    height: 100vh;
+    background: #efefef;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    z-index: 890;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: scroll;
+    transition-duration: 300ms;
+}
+
+.aboutBody {
+    width: calc(100% - 60px);
+    margin: 50px 30px 0 30px;
+}
+
+#aboutHB {
+    margin: 100px 30px 0 30px;
+}
+
+.aboutBody h1 {
+    font-family: 'Pinyon Script', cursive;
+}
+
+.aboutBody h2 {
+    font-family: Lora;
+    font-weight: normal;
+    font-size: 1.2em;
+}
+
+.aboutBody p, #Aboutfooter p {
+    font-family: Lora;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    text-align: justify;
+    color: #444444;
+}
+
+.aboutBody p span {
+    font-weight: bold;
+}
+
+.aboutBody p a {
+    color: #444444;
+    text-decoration: underline;
+}
+
+.aboutBody p.centerAlign {
+    text-align: center;
+}
+
+.aboutFullWidth {
+    width: 100%;
+    margin: 50px 0 0 0;
+}
+
+#Aboutfooter {
+    background-color: lightgray;
+    height: 150px;
+}
+
+.sidepanelLogo {
+    width: 60%;
+    margin: 30px auto 0 auto;
+}
+
+#Aboutfooter p {
+    text-align: center;
+    margin: 20px auto 30px auto;
+    font-size: 0.8em;
+}

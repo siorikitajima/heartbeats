@@ -300,14 +300,18 @@ $('.chart-animals').mouseenter(function() {
    openAnalytics();
    });
 
-// close Btn in Analytics page
+// Close from close Btn in Analytics page
   $('#rightBtnAnalytics').click(function() {
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
     if(animalFullscreenNotOpen == true) {
       closeAnalytics();
+      var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
       for (i = 0; i < animalSound.length; i++) {
-        var id1 = animalSound[i].sound.play();
-        animalSound[i].sound.fade(0, 0.7, 2000, id1);
+          if(i == animalNumberFullScreen) {
+              animalSound[i].sound.fade(1, 0.7, 1000);
+          } else {
+              animalSound[i].sound.fade(0.1, 0.7, 2000);
+          }
       }
     } else {
       closeAnalytics();
@@ -324,27 +328,26 @@ $('.chart-animals').mouseenter(function() {
     closeFullscreenAnimalSound();
   });
 
-  // from Header
+  // Open / Close from Header
   $('.navAnalytics').click(function() {
     var positionTopAnalytics = $("#analytics").css("top");
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
-    var animalNumber = $('.fullscreen').attr('data-animalNumber');
     if(positionTopAnalytics !== "0px") {
       openAnalytics();
     } else {
       closeAnalytics();
       if(animalFullscreenNotOpen == false) {
+        var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
         for (i = 0; i < animalSound.length; i++) {
-          if(i == animalNumber) {
-              animalSound[i].sound.volume(1.0);
-          } else {
-              animalSound[i].sound.volume(0.1);
-          }
+            if(i == animalNumberFullScreen) {
+                animalSound[i].sound.fade(1, 0.7, 1000);
+            } else {
+                animalSound[i].sound.fade(0.1, 0.7, 2000);
+            }
         }
       } else {
         for (i = 0; i < animalSound.length; i++) {
-          var id1 = animalSound[i].sound.play();
-          animalSound[i].sound.fade(0, 0.7, 2000, id1);
+          animalSound[i].sound.volume(0.7);
         }
       }
     }
@@ -378,6 +381,31 @@ function closeFullscreenAnimalSound() {
     closeFullscreenAnimal();
     closeFullscreenAnimalSound();
   });
+
+  $('.navAnimals').click(function() {
+    var positionTopAnalytics = $("#analytics").css("top");
+    var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
+    if(positionTopAnalytics !== "0px") {
+      if(animalFullscreenNotOpen == false) {
+        closeFullscreenAnimal();
+        closeFullscreenAnimalSound();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      } else {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      }
+    } else {
+      if(animalFullscreenNotOpen == false) {
+        closeAnalytics();
+        closeFullscreenAnimal();
+        closeFullscreenAnimalSound();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      } else {
+        closeAnalytics();
+        closeFullscreenAnimalSound();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      }
+    }
+  })
   });
 };
 animalRequest.send();
@@ -430,4 +458,26 @@ $(document).ready(function(){
         });
       }
     });
+  });
+
+  $('.navAbout').click(function() {
+    var positionAbout = $("#aboutPanel").css("right");
+    if(positionAbout !== "0px") {
+    $('#aboutPanel').css({
+      'right':'0px'
+    });
+    $('#rightBtnAbout').removeClass('displayNone');
+    } else {
+      $('#aboutPanel').css({
+        'right':'-400px'
+      });
+      $('#rightBtnAbout').addClass('displayNone');
+    }
+  });
+
+  $('#rightBtnAbout').click(function() {
+    $('#aboutPanel').css({
+      'right':'-400px'
+    });
+    $('#rightBtnAbout').addClass('displayNone');
   });

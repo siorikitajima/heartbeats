@@ -528,7 +528,10 @@ body {
   .arrows:hover, .btns:hover {opacity: 0.7;
     transition-duration: 200ms;}
   #leftArrow {left: 0;}
-  #rightArrow, #rightBtn, #rightBtnAnalytics {right:0;}
+  #rightArrow, #rightBtn, #rightBtnAnalytics, #rightBtnAbout {right:0;}
+  #rightBtnAbout {
+    z-index: 895;
+  }
   
   @media(max-width: 960px) {
     .arrows, .btns {
