@@ -9,6 +9,7 @@ if (!animalRequest) {
 animalRequest.open('GET','animal_data.json', true);
 
 animalRequest.onload = function() {
+
 var animalData = JSON.parse(animalRequest.responseText);
 
 // Generate divs for template
@@ -129,6 +130,7 @@ function openAnalytics() {
   };
 
 /////////////////////////////////////////// Sounds
+$.getScript('howler.js', function() {
 
   var animalSound = [
     {sound: new Howl({ src: ['sounds/01BlueWhale09.ogg', 'sounds/01BlueWhale09.mp3'], loop: true})},
@@ -376,7 +378,7 @@ function closeFullscreenAnimalSound() {
     closeFullscreenAnimal();
     closeFullscreenAnimalSound();
   });
-  
+  });
 };
 animalRequest.send();
 
