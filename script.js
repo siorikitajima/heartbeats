@@ -111,7 +111,7 @@ function openAnalytics() {
   var positionTop = $("#mobileNav").css("top");
     if(positionTop == "0px") {
       $("#mobileNav").animate({
-        top: "-130px"
+        top: "-150px"
       });
     }
     $('#analytics').css({
@@ -385,6 +385,12 @@ function closeFullscreenAnimalSound() {
   $('.navAnimals').click(function() {
     var positionTopAnalytics = $("#analytics").css("top");
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
+    var positionTop = $("#mobileNav").css("top");
+    if(positionTop == "0px") {
+      $("#mobileNav").animate({
+        top: "-150px"
+      });
+    }
     if(positionTopAnalytics !== "0px") {
       if(animalFullscreenNotOpen == false) {
         closeFullscreenAnimal();
@@ -444,7 +450,7 @@ $(document).ready(function(){
       var positionTop = $("#mobileNav").css("top");
       if(positionTop == "0px") {
         $("#mobileNav").animate({
-          top: "-130px"
+          top: "-150px"
         }, 200, function() {
           $("#mobileNav").css("display", "none");
           headerFadeOut();
@@ -463,6 +469,12 @@ $(document).ready(function(){
   $('.navAbout').click(function() {
     var positionAbout = $("#aboutPanel").css("right");
     if(positionAbout !== "0px") {
+      var positionTop = $("#mobileNav").css("top");
+      if(positionTop == "0px") {
+        $("#mobileNav").animate({
+          top: "-150px"
+        });
+      }
     $('#aboutPanel').css({
       'right':'0px'
     });

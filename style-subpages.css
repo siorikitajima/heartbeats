@@ -7,14 +7,17 @@
     bottom: -100vh;
     left: 0;
     z-index: 800;
+    overflow: hidden;
 }
 
 #chartWrap, #bordersWrap {
-    width: 70vw;
-    height: 50vh;
-    min-width: 780px;
+    width: 80vw;
+    height: 70vh;
     position: absolute;
-    top: 50%;
+}
+
+#bordersWrap {
+    top: calc(50% + 60px);
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -35,7 +38,6 @@
     #chartWrap, #bordersWrap {
         width: 80vw;
         height: calc(100vh - 250px);
-        min-width: unset;
         top: unset;
         left: 50%;
         transform: translate(-50%, 0);
@@ -231,7 +233,7 @@
     margin-top: 20px;
     margin-right: 20px;
     float: right;
-    width: 60%;
+    width: calc(100% - 140px);
     max-width: 500px;
     line-height: 2em;
     text-align: right;
@@ -267,6 +269,7 @@
     }
 }
 
+/*////////////////////////////// ABOUT Panel*/
 
 #aboutPanel {
     width: 400px;
