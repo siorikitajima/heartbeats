@@ -34,7 +34,7 @@ var dotTemplate = document.getElementById("template-dots");
 var dotTemplateHtml = dotTemplate.innerHTML;
 var listHtml = "";
 
-$('#dotInfo').hide();
+//$('#dotInfo').hide();
 
 for (var key in animalData) {
 
@@ -52,6 +52,7 @@ document.getElementById("chartWrap").innerHTML = listHtml;
 function animalDotFocus(animalNumber) {
         var lifePercentValue = animalData[animalNumber]["years"];
         var bpmPercentValue = animalData[animalNumber]["bpmPercent"];
+        var colorValue = animalData[animalNumber]["color"];
         var bpmPercent = "calc(" + bpmPercentValue + "% + 30px)";
         var bpmPercentString = bpmPercentValue + "%";
         var lifePercent = lifePercentValue + "%";
@@ -60,7 +61,7 @@ function animalDotFocus(animalNumber) {
         var animalName = animalData[animalNumber]["name"];
         var animalBPM = animalData[animalNumber]["beatsPerMinute"];
         var animalBPL = animalData[animalNumber]["beatsPerLife"];
-        var dotInfoString = "<img src='images/static-animals/" + animalID + "_static.svg'><p class='dotInfoLarge'>" + animalName + "</p><p class='dotInfoSmall'>" + animalName + "'s average heart rate is <span>" + animalBPM + "</span> beats per minute, and they live about <span> " + lifePercentValue + " </span>years. Their total heartbeats per life is about <span> " + animalBPL + " </span> beats.</p>";
+        var dotInfoString = "<img src='images/static-animals/" + animalID + "_static.svg'><p class='dotInfoLarge'>" + animalName + "</p><p class='dotInfoSmall'>" + animalName + "'s average heart rate is <span>" + animalBPM + "</span> beats per minute, and they live about <span> " + lifePercentValue + " </span>years. Their total heartbeats per life is about <span> " + animalBPL + "m </span> beats.</p>";
         var bpmBubbleString = "<div class='bubbles'>" + animalBPM + "</div>";
         var lifeBubbleString = "<div class='bubbles-life'>" + lifePercentValue + "</div>";
         $('#verticalLine').css({
@@ -74,7 +75,9 @@ function animalDotFocus(animalNumber) {
         });
         $('#horizontalLine').before(lifeBubbleString);
         $('#dotInfo').html(dotInfoString);
-        $('#dotInfo').fadeIn(100);
+        $('#dotInfo').css({
+          'background-color' : colorValue
+        });
         $('.bubbles').css({
           'right': bpmPercentString
         });
@@ -87,6 +90,14 @@ function animalDotFocus(animalNumber) {
           $(theAnimalDot).css({
             "opacity":"1"
           });
+          $(theAnimalDot).addClass('forcusedAnimal');
+
+          if ($(window).width() < 600) {
+            $('#leftArrowMobile, #rightArrowMobile').removeClass('displayNone');
+            $('#rightBtnAnalytics').addClass('displayNone');
+          } else {
+            $('#leftArrowAnalytics, #rightArrowAnalytics').removeClass('displayNone');
+          }
 };
 
 function animalDotUnFocus() {
@@ -98,11 +109,21 @@ function animalDotUnFocus() {
     $('#horizontalLine').css({
       'display':'none'
     });
-    $('#dotInfo').html('');
-    $('#dotInfo').fadeOut(100);
+    $('#dotInfo').html("<img src='images/PatternBased_art_white_icon.svg'><p class='dotInfoLarge'>Analytics</p><p class='dotInfoSmall'>This chart is showing heart rate and life expectancy of animals. Touch one to learn more. The pink line is showing <span>One Million</span> beats per lifetime.</p>");
+    $('#dotInfo').css({
+      'background-color' : 'rgba(255,137,127,1)'
+    });
     $('.chart-animals').css({
       "opacity":"0.5"
     });
+    $('.forcusedAnimal').removeClass('forcusedAnimal');
+
+    if ($(window).width() < 600) {
+      $('#leftArrowMobile, #rightArrowMobile').addClass('displayNone');
+      $('#rightBtnAnalytics').removeClass('displayNone');
+    } else {
+      $('#leftArrowAnalytics, #rightArrowAnalytics').addClass('displayNone');
+    }
 };
 
 // Open/Close Analytics features
@@ -118,7 +139,12 @@ function openAnalytics() {
       'bottom':'0',
       'transition-duration':'300ms'
     });
-    $('#rightBtnAnalytics').removeClass('displayNone');
+
+    if ($(window).width() < 600) {
+      $('#rightBtnAnalytics, #rightBtnAnalyticsMobile').removeClass('displayNone');
+    } else {
+      $('#rightBtnAnalytics').removeClass('displayNone');
+    }
   };
 
   function closeAnalytics() {
@@ -126,7 +152,12 @@ function openAnalytics() {
       'bottom':'-100vh',
       'transition-duration':'300ms'
     });
-    $('#rightBtnAnalytics').addClass('displayNone');
+
+    if ($(window).width() < 600) {
+      $('#rightBtnAnalytics, #rightBtnAnalyticsMobile').addClass('displayNone');
+    } else {
+      $('#rightBtnAnalytics').addClass('displayNone');
+    }
   };
 
 /////////////////////////////////////////// Sounds
@@ -226,14 +257,14 @@ function generateFullScreenAnimal(animalNumberFullScreen){
   $('#animalBPM').html(animalBPMString);
   $('#animalLife').html(animalLifeString);
   $('#animalTotal').html(animalTotalString);
-// Sound for the Animal
-  for (i = 0; i < animalSound.length; i++) {
-    if(i == animalNumberFullScreen) {
-        animalSound[i].sound.volume(1.0);
-    } else {
-        animalSound[i].sound.volume(0.1);
-    }
-}    
+// // Sound for the Animal
+//   for (i = 0; i < animalSound.length; i++) {
+//     if(i == animalNumberFullScreen) {
+//         animalSound[i].sound.volume(1.0);
+//     } else {
+//         animalSound[i].sound.volume(0.1);
+//     }
+// }    
 };
 
 // Open Full screen animal
@@ -241,6 +272,14 @@ function generateFullScreenAnimal(animalNumberFullScreen){
 $('.square').on('click', function() {
   var animalNumberFullScreen = $(this).attr("data-animalNumber");
   generateFullScreenAnimal(animalNumberFullScreen);
+  // Sound for the Animal
+  for (i = 0; i < animalSound.length; i++) {
+    if(i == animalNumberFullScreen) {
+        animalSound[i].sound.volume(1.0);
+    } else {
+        animalSound[i].sound.volume(0.1);
+    }
+}    
 });
 
 // Left / Preview Arrow Button
@@ -252,6 +291,14 @@ $('#leftArrow').on('click', function() {
       var animalNumberFullScreen = lastItemPotition;
   }
   generateFullScreenAnimal(animalNumberFullScreen);
+  // Sound for the Animal
+  for (i = 0; i < animalSound.length; i++) {
+    if(i == animalNumberFullScreen) {
+        animalSound[i].sound.volume(1.0);
+    } else {
+        animalSound[i].sound.volume(0.1);
+    }
+}    
 });
 
 // Right / Next Arrow Button
@@ -265,6 +312,14 @@ $('#rightArrow').on('click', function() {
       animalNumberFullScreen = 0;
   }
   generateFullScreenAnimal(animalNumberFullScreen);
+  // Sound for the Animal
+  for (i = 0; i < animalSound.length; i++) {
+    if(i == animalNumberFullScreen) {
+        animalSound[i].sound.volume(1.0);
+    } else {
+        animalSound[i].sound.volume(0.1);
+    }
+}    
 });
 
 ///////////////////////////// Analytic Focus Handling
@@ -284,12 +339,24 @@ $('.chart-animals').mouseenter(function() {
               }
         }    
       }, 200);
-}).mouseleave(function() {
-    clearTimeout(timer);
+//}).mouseleave(function() {
+//    clearTimeout(timer);
 });
 
- $('.chart-animals').mouseleave(function(){
+//  $('.chart-animals').mouseleave(function(){
+//   animalDotUnFocus();
+//  });
+
+ $('#chartWrap').click(function() {
   animalDotUnFocus();
+  var animalNumberFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
+  for (i = 0; i < animalSound.length; i++) {
+      if(i == animalNumberFullScreen) {
+          animalSound[i].sound.fade(1, 0.7, 1000);
+      } else {
+          animalSound[i].sound.fade(0.1, 0.7, 2000);
+      }
+  }
  });
 
  // Open from Fullscreen animal page
@@ -300,10 +367,53 @@ $('.chart-animals').mouseenter(function() {
    openAnalytics();
    });
 
+// Analytics Left / Right arrow buttons
+
+ $('#rightArrowMobile, #rightArrowAnalytics').click(function() {
+  var animalFocusFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
+  var numberdFocusedAnimal = Number(animalFocusFullScreen);
+  var nextFocusedAnimal = numberdFocusedAnimal +1;
+  var lastItemPotition = animalData.length;
+  if(nextFocusedAnimal==lastItemPotition) {
+    nextFocusedAnimal = 0;
+  }
+  animalDotUnFocus();
+  animalDotFocus(nextFocusedAnimal);
+            // Sound for the Animal
+            for (i = 0; i < animalSound.length; i++) {
+              if(i == nextFocusedAnimal) {
+                  animalSound[i].sound.volume(1.0);
+              } else {
+                  animalSound[i].sound.volume(0.1);
+              }
+        }    
+  });
+
+ $('#leftArrowMobile, #leftArrowAnalytics').click(function() {
+  var animalFocusFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
+  var numberdFocusedAnimal = Number(animalFocusFullScreen);
+  var nextFocusedAnimal = numberdFocusedAnimal -1;
+  var lastItemPotition = animalData.length -1;
+  if (nextFocusedAnimal == -1) {
+    var nextFocusedAnimal = lastItemPotition;
+}
+  animalDotUnFocus();
+  animalDotFocus(nextFocusedAnimal);
+              // Sound for the Animal
+              for (i = 0; i < animalSound.length; i++) {
+                if(i == nextFocusedAnimal) {
+                    animalSound[i].sound.volume(1.0);
+                } else {
+                    animalSound[i].sound.volume(0.1);
+                }
+          }   
+  });
+
 // Close from close Btn in Analytics page
-  $('#rightBtnAnalytics').click(function() {
+  $('#rightBtnAnalytics, #rightBtnAnalyticsMobile').click(function() {
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
     if(animalFullscreenNotOpen == true) {
+      animalDotUnFocus();
       closeAnalytics();
       var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
       for (i = 0; i < animalSound.length; i++) {
@@ -314,6 +424,7 @@ $('.chart-animals').mouseenter(function() {
           }
       }
     } else {
+      animalDotUnFocus();
       closeAnalytics();
       var animalNumber = $('.fullscreen').attr('data-animalNumber');
             for (i = 0; i < animalSound.length; i++) {
@@ -336,6 +447,7 @@ $('.chart-animals').mouseenter(function() {
       openAnalytics();
     } else {
       closeAnalytics();
+      animalDotUnFocus();
       if(animalFullscreenNotOpen == false) {
         var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
         for (i = 0; i < animalSound.length; i++) {
@@ -354,10 +466,32 @@ $('.chart-animals').mouseenter(function() {
   });
 
 // from Analytics to Fullscreen animal page
-$('.chart-animals').click(function(){
+$('.chart-animals').click(function(event){
+  event.stopPropagation();
   var clickedAnimalNumber = $(this).attr("data-animalNumber");
-  closeAnalytics();
-  generateFullScreenAnimal(clickedAnimalNumber);
+  if ($(this).hasClass('forcusedAnimal')) {
+    animalDotUnFocus();
+    closeAnalytics();
+    generateFullScreenAnimal(clickedAnimalNumber);
+    // Sound for the Animal
+  for (i = 0; i < animalSound.length; i++) {
+    if(i == clickedAnimalNumber) {
+        animalSound[i].sound.volume(1.0);
+    } else {
+        animalSound[i].sound.volume(0.1);
+    }
+}    
+  } else {
+    animalDotFocus(clickedAnimalNumber);
+          // Sound for the Animal
+          for (i = 0; i < animalSound.length; i++) {
+            if(i == clickedAnimalNumber) {
+                animalSound[i].sound.volume(1.0);
+            } else {
+                animalSound[i].sound.volume(0.1);
+            }
+      }  
+  }
 })
 
 ///////////////////////////// Close Button

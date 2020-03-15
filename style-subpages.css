@@ -13,7 +13,9 @@
 #chartWrap, #bordersWrap {
     width: 80vw;
     height: 70vh;
+    max-height: calc(100vh - 240px);
     position: absolute;
+    margin-bottom: 60px;
 }
 
 #bordersWrap {
@@ -29,6 +31,28 @@
     background-size: 100% 100%;
 }
 
+#chartWrap::before {
+    content: "Life Expectancy";
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    font-family: Lora;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+#chartWrap::after {
+    content: "Heart Rate";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-family: Lora;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+}
+
 @media(max-width: 900px) {
     #analytics {
         width: 100vw;
@@ -38,6 +62,7 @@
     #chartWrap, #bordersWrap {
         width: 80vw;
         height: calc(100vh - 250px);
+        max-height: unset;
         top: unset;
         left: 50%;
         transform: translate(-50%, 0);
@@ -48,6 +73,26 @@
     #chartWrap {
         border-left: none;
         border-bottom: none;
+    }
+    #chartWrap::before, #chartWrap::after {
+        display: none;
+    }
+}
+
+@media(max-width: 600px) {
+    #analytics {
+        z-index: 999;
+    }
+    #bordersWrap {
+        width: calc(100vw - 70px);
+        height: calc(100vh - 200px);
+        left: 60px;
+        bottom: 30px;
+        transform: none;
+    }
+    #chartWrap {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -165,19 +210,6 @@
     margin-left: 10px;
 }
 
-
-@media(max-width: 700px) {
-    .bubbles, .bubbles-life {
-        width: 30px;
-        height: 30px;
-        font-size: 1em;
-    }
-    .bubbles-life {
-        margin-left: -50px;
-        margin-bottom: 5px;
-    }
-}
-
 #horizontalLine {
     width: 100%;
     height: 2px;
@@ -222,7 +254,7 @@
 
 .dotInfoLarge {
     font-family: 'Pinyon Script', cursive;
-    font-size: 2em;
+    font-size: 1.8em;
     margin-top: 45px;
     line-height: 0;
 }
@@ -234,7 +266,7 @@
     margin-right: 20px;
     float: right;
     width: calc(100% - 140px);
-    max-width: 500px;
+    max-width: 520px;
     line-height: 2em;
     text-align: right;
 }
@@ -245,13 +277,13 @@
     line-height: 0;
 }
 
-@media(max-width: 900px) {
+@media(max-width: 1100px) {
     #dotInfo p {
         display: block;
         margin-left: 110px;
     }
     .dotInfoLarge {
-        font-size: 1.5em;
+        font-size: 1.4em;
         margin-top: 25px;
         margin-bottom: 0;
     }
@@ -259,13 +291,37 @@
         font-size: 0.8em;
         float: none;
         margin-top: 15px;
-        width: calc(100% - 130px);
+        width: calc(100% - 120px);
         max-width: 100%;
         text-align: left;
-        line-height: 1.6em;
+        line-height: 1.4em;
     }
     .dotInfoSmall span {
         font-size: 1.2em;
+    }
+}
+
+@media(max-width: 600px) {
+    #dotInfo {
+        width: 100vw;
+        height: 140px;
+        top: -140px;
+        left: -60px;
+    }
+    #dotInfo img {
+        display: none;
+    }
+    #dotInfo p {
+        margin: 20px 40px;
+    }
+    .dotInfoSmall {
+        width: calc(100% - 80px);
+    }
+    .dotInfoLarge {
+        padding-top: 15px;
+    }
+    #horizontalLine {
+        width: 100vw;
     }
 }
 
@@ -343,4 +399,11 @@
     text-align: center;
     margin: 20px auto 30px auto;
     font-size: 0.8em;
+}
+
+@media (max-width: 400px) {
+    #aboutPanel {
+        width: 100vw;
+        height: 100vh;
+    }
 }
