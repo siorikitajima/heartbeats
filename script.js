@@ -446,9 +446,10 @@ $('.chart-animals').mouseenter(function() {
     if(positionTopAnalytics !== "0px") {
       openAnalytics();
     } else {
-      closeAnalytics();
-      animalDotUnFocus();
-      if(animalFullscreenNotOpen == false) {
+      var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
+      if(animalFullscreenNotOpen == true) {
+        animalDotUnFocus();
+        closeAnalytics();
         var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
         for (i = 0; i < animalSound.length; i++) {
             if(i == animalNumberFullScreen) {
@@ -458,10 +459,19 @@ $('.chart-animals').mouseenter(function() {
             }
         }
       } else {
-        for (i = 0; i < animalSound.length; i++) {
-          animalSound[i].sound.volume(0.7);
-        }
+        animalDotUnFocus();
+        closeAnalytics();
+        var animalNumber = $('.fullscreen').attr('data-animalNumber');
+              for (i = 0; i < animalSound.length; i++) {
+                if(i == animalNumber) {
+                    animalSound[i].sound.volume(1.0);
+                } else {
+                    animalSound[i].sound.volume(0.1);
+                }
+              }
       }
+      closeFullscreenAnimal();
+      closeFullscreenAnimalSound();
     }
   });
 
