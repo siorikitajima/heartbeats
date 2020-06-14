@@ -11,17 +11,6 @@
 	  -webkit-backface-visibility: hidden;
 	}
 </style>
-<filter id="dropshadow" height="130%">
-  <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
-  <feComponentTransfer>
-    <feFuncA type="linear" slope="0.3"/>
-  </feComponentTransfer>
-  <feMerge> 
-    <feMergeNode/> <!-- this contains the offset blurred image -->
-    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-  </feMerge>
-</filter>
-<g style="filter:url(#dropshadow)">
 <g>
 	<path class="st0" d="M315.6,106.5c-16.6,3.7-32.8,9.5-49.6,12.1c-41.2,6.4-83.1-7-124.8-4.7c-15.9,0.9-31.6,4-46.6,9.4
 		C81.3,128,68.4,134.6,58.8,145c-8.7,9.4-14.1,21.4-17.9,33.5c-8.4,26.5-9.7,56.8,3.9,81.1c7.2,12.8,18.1,23.1,28.9,33.1
@@ -74,6 +63,5 @@
 		</g>
 		<polygon id="eraser" class="st0" points="335.8,98 319.3,103.6 314.3,132.5 326.6,146.8 349.4,125.4 		"/>
 	</g>
-</g>
 </g>
 </svg>

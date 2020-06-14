@@ -369,7 +369,7 @@ $('.chart-animals').mouseenter(function() {
 
 // Analytics Left / Right arrow buttons
 
- $('#rightArrowMobile, #rightArrowAnalytics').click(function() {
+ $('#leftArrowMobile, #leftArrowAnalytics').click(function() {
   var animalFocusFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
   var numberdFocusedAnimal = Number(animalFocusFullScreen);
   var nextFocusedAnimal = numberdFocusedAnimal +1;
@@ -389,7 +389,7 @@ $('.chart-animals').mouseenter(function() {
         }    
   });
 
- $('#leftArrowMobile, #leftArrowAnalytics').click(function() {
+ $('#rightArrowMobile, #rightArrowAnalytics').click(function() {
   var animalFocusFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
   var numberdFocusedAnimal = Number(animalFocusFullScreen);
   var nextFocusedAnimal = numberdFocusedAnimal -1;

@@ -382,7 +382,7 @@ body {
     margin: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-auto-rows: 1fr;
     grid-gap: 0;
     overflow: scroll;
@@ -400,6 +400,12 @@ body {
     @media(max-width: 960px) {
       .gridwrapper {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media(max-width: 480px) {
+      .gridwrapper {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       }
     }
 
@@ -441,6 +447,17 @@ body {
       }
       .animaiName {
         font-size:1.2em;
+        padding-bottom: 10px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .animailImg, .animailImg img {
+        width: 100px;
+      }
+      .animaiName {
+        font-size:1em;
+        padding-bottom: 5px;
       }
     }
 
