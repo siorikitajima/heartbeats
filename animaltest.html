@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="lottie.js"></script>
+
     <title>Document</title>
 </head>
 <body style="background-color: palevioletred;">
-    <img src="images/animated-animals/dolphin.svg" width="500">
+    <!--<img src="images/animated-animals/dolphin.svg" width="500">-->
+
+    <div id="animatedAnimalSVGtest"></div>
+
+    <script>
+    var animData = {
+      container: document.getElementById('animatedAnimalSVGtest'),
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+    //   rendererSettings: {
+    //     progressiveLoad: true,
+    //     preserveAspectRatio: "xMidYMid meet",
+    //     imagePreserveAspectRatio: "xMidYMid meet"
+    //   },
+      path: 'images/animated-animals/human.json'
+    };
+    anim = lottie.loadAnimation(animData);
+    anim.setSubframe(false);
+    anim.setSpeed(1);
+    </script>
 </body>
 </html>

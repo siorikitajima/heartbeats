@@ -490,11 +490,18 @@ body {
         position: relative;
       } 
 
-.animailImgFullScreen img {
+#animatedAnimalSVG {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#animatedAnimalSVGtest {
+  width: 400px;
+  height: 400px;
+  margin: 20% auto; 
 }
 
 .animaiNameFullScreen {
