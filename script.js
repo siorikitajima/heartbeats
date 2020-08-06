@@ -380,6 +380,7 @@ $('.chart-animals').mouseenter(function() {
 
  $('#openAnalytics').click(function() {
    var animalFocusFullScreen = $('.fullscreen').attr("data-animalNumber");
+   anim.destroy();
    animalDotFocus(animalFocusFullScreen);
    openAnalytics();
    });
