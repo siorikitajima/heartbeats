@@ -1,3 +1,4 @@
+var anim;
 ///////////////////////////// Generate Grid Animals
 
 // Connect to JSON
@@ -92,12 +93,21 @@ function animalDotFocus(animalNumber) {
           });
           $(theAnimalDot).addClass('forcusedAnimal');
 
-          if ($(window).width() < 600) {
-            $('#leftArrowMobile, #rightArrowMobile').removeClass('displayNone');
-            $('#rightBtnAnalytics').addClass('displayNone');
-          } else {
-            $('#leftArrowAnalytics, #rightArrowAnalytics').removeClass('displayNone');
-          }
+          // if ($(window).width() < 600) {
+          //   $('#leftArrowMobile, #rightArrowMobile').removeClass('displayNone');
+          //   $('#rightBtnAnalytics').addClass('displayNone');
+          // } else {
+          //   $('#leftArrowAnalytics, #rightArrowAnalytics').removeClass('displayNone');
+          // }
+};
+
+function showAnalyticsArrows() {
+  if ($(window).width() < 600) {
+    $('#leftArrowMobile, #rightArrowMobile').removeClass('displayNone');
+    $('#rightBtnAnalytics').addClass('displayNone');
+  } else {
+    $('#leftArrowAnalytics, #rightArrowAnalytics').removeClass('displayNone');
+  }
 };
 
 function animalDotUnFocus() {
@@ -118,12 +128,21 @@ function animalDotUnFocus() {
     });
     $('.forcusedAnimal').removeClass('forcusedAnimal');
 
-    if ($(window).width() < 600) {
-      $('#leftArrowMobile, #rightArrowMobile').addClass('displayNone');
-      $('#rightBtnAnalytics').removeClass('displayNone');
-    } else {
-      $('#leftArrowAnalytics, #rightArrowAnalytics').addClass('displayNone');
-    }
+    // if ($(window).width() < 600) {
+    //   $('#leftArrowMobile, #rightArrowMobile').addClass('displayNone');
+    //   $('#rightBtnAnalytics').removeClass('displayNone');
+    // } else {
+    //   $('#leftArrowAnalytics, #rightArrowAnalytics').addClass('displayNone');
+    // }
+};
+
+function hideAnalyticsArrows() {
+  if ($(window).width() < 600) {
+    $('#leftArrowMobile, #rightArrowMobile').addClass('displayNone');
+    $('#rightBtnAnalytics').removeClass('displayNone');
+  } else {
+    $('#leftArrowAnalytics, #rightArrowAnalytics').addClass('displayNone');
+  }
 };
 
 // Open/Close Analytics features
@@ -158,6 +177,7 @@ function openAnalytics() {
     } else {
       $('#rightBtnAnalytics').addClass('displayNone');
     }
+    hideAnalyticsArrows();
   };
 
 /////////////////////////////////////////// Sounds
@@ -238,10 +258,8 @@ function generateFullScreenAnimal(animalNumberFullScreen){
   var animalPositionTop = animalData[animalNumberFullScreen]["heartTop"] + "%";
   var animalPositionLeft = animalData[animalNumberFullScreen]["heartLeft"] + "%";
   var animalPositionSize = animalData[animalNumberFullScreen]["heartSize"];
-// SVG/CSS Animation 1/2 //  var animalImgString = "images/animated-animals/" + animalId + ".svg";
   var animalImgString = "images/animated-animals/" + animalId + ".json";
   var animalAnimSpeed = animalData[animalNumberFullScreen]["speed"];
-// SVG/CSS Animation 1/2 END //
   var animalName = animalData[animalNumberFullScreen]["name"];
   var animalBPMString = animalData[animalNumberFullScreen]["beatsPerMinute"] + "<br/><span>BPM</span>"
   var animalLifeString = animalData[animalNumberFullScreen]["years"] + "<br/><span>years</span>"
@@ -255,31 +273,17 @@ function generateFullScreenAnimal(animalNumberFullScreen){
       'width':animalPositionSize
   });
   $('.fullscreen').css({'background-color':animalColor});
-// SVG/CSS Animation 2/2 //  $('#animatedAnimalSVG').attr('src', animalImgString);
-  // lottie.loadAnimation({
-  //   container: '#animatedAnimalSVG',
-  //   renderer: 'svg',
-  //   loop: true,
-  //   autoplay: true,
-  //   path: animalImgString
-  // });
 
   var animData = {
     container: document.getElementById('animatedAnimalSVG'),
     renderer: "svg",
     loop: true,
     autoplay: true,
-    // rendererSettings: {
-    //   progressiveLoad: true,
-    //   preserveAspectRatio: "xMidYMid meet",
-    //   imagePreserveAspectRatio: "xMidYMid meet"
-    // },
     path: animalImgString
   };
   anim = lottie.loadAnimation(animData);
   anim.setSubframe(false);
   anim.setSpeed(animalAnimSpeed);
-// SVG/CSS Animation 2/2 END //
 
   $('.animaiNameFullScreen').html(animalName);
   $('#animalBPM').html(animalBPMString);
@@ -350,6 +354,7 @@ $('#rightArrow').on('click', function() {
 var timer;
 $('.chart-animals').mouseenter(function() {
   animalDotUnFocus();
+  showAnalyticsArrows();
     var that = this;
     timer = setTimeout(function(){
       var animalNumber = $(that).attr('data-animalNumber');
@@ -363,10 +368,13 @@ $('.chart-animals').mouseenter(function() {
               }
         }    
       }, 200);
+  var arrowsAlreadyShown = $('#rightArrowAnalytics').hasClass('displayNone');
+  var arrowsAlreadyShownMobile = $('#rightArrowMobile').hasClass('displayNone');
 });
 
  $('#chartWrap').click(function() {
   animalDotUnFocus();
+  hideAnalyticsArrows();
   var animalNumberFullScreen = $('.forcusedAnimal').attr("data-animalNumber");
   for (i = 0; i < animalSound.length; i++) {
       if(i == animalNumberFullScreen) {
@@ -383,6 +391,7 @@ $('.chart-animals').mouseenter(function() {
    var animalFocusFullScreen = $('.fullscreen').attr("data-animalNumber");
    anim.destroy();
    animalDotFocus(animalFocusFullScreen);
+   showAnalyticsArrows();
    openAnalytics();
    });
 
@@ -398,6 +407,7 @@ $('.chart-animals').mouseenter(function() {
   }
   animalDotUnFocus();
   animalDotFocus(nextFocusedAnimal);
+  showAnalyticsArrows();
             // Sound for the Animal
             for (i = 0; i < animalSound.length; i++) {
               if(i == nextFocusedAnimal) {
@@ -418,6 +428,7 @@ $('.chart-animals').mouseenter(function() {
 }
   animalDotUnFocus();
   animalDotFocus(nextFocusedAnimal);
+  showAnalyticsArrows();
               // Sound for the Animal
               for (i = 0; i < animalSound.length; i++) {
                 if(i == nextFocusedAnimal) {
@@ -433,6 +444,7 @@ $('.chart-animals').mouseenter(function() {
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
     if(animalFullscreenNotOpen == true) {
       animalDotUnFocus();
+      hideAnalyticsArrows();
       closeAnalytics();
       var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
       for (i = 0; i < animalSound.length; i++) {
@@ -444,6 +456,7 @@ $('.chart-animals').mouseenter(function() {
       }
     } else {
       animalDotUnFocus();
+      hideAnalyticsArrows();
       closeAnalytics();
       var animalNumber = $('.fullscreen').attr('data-animalNumber');
             for (i = 0; i < animalSound.length; i++) {
@@ -460,6 +473,9 @@ $('.chart-animals').mouseenter(function() {
 
   // Open / Close from Header
   $('.navAnalytics').click(function() {
+    if(anim){
+    anim.destroy();
+    }
     var positionTopAnalytics = $("#analytics").css("top");
     var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
     if(positionTopAnalytics !== "0px") {
@@ -468,6 +484,7 @@ $('.chart-animals').mouseenter(function() {
       var animalFullscreenNotOpen = $(".fullscreen").hasClass('displayNone');
       if(animalFullscreenNotOpen == true) {
         animalDotUnFocus();
+        hideAnalyticsArrows();
         closeAnalytics();
         var animalNumberFullScreen = $('.fullscreen').attr("data-animalNumber");
         for (i = 0; i < animalSound.length; i++) {
@@ -479,6 +496,7 @@ $('.chart-animals').mouseenter(function() {
         }
       } else {
         animalDotUnFocus();
+        hideAnalyticsArrows();
         closeAnalytics();
         var animalNumber = $('.fullscreen').attr('data-animalNumber');
               for (i = 0; i < animalSound.length; i++) {
@@ -500,6 +518,7 @@ $('.chart-animals').click(function(event){
   var clickedAnimalNumber = $(this).attr("data-animalNumber");
   if ($(this).hasClass('forcusedAnimal')) {
     animalDotUnFocus();
+    hideAnalyticsArrows();
     closeAnalytics();
     generateFullScreenAnimal(clickedAnimalNumber);
     // Sound for the Animal
@@ -509,9 +528,10 @@ $('.chart-animals').click(function(event){
     } else {
         animalSound[i].sound.volume(0.1);
     }
-}    
+    }    
   } else {
     animalDotFocus(clickedAnimalNumber);
+    hideAnalyticsArrows();
           // Sound for the Animal
           for (i = 0; i < animalSound.length; i++) {
             if(i == clickedAnimalNumber) {
