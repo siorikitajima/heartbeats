@@ -349,6 +349,7 @@ $('#rightArrow').on('click', function() {
 
 var timer;
 $('.chart-animals').mouseenter(function() {
+  animalDotUnFocus();
     var that = this;
     timer = setTimeout(function(){
       var animalNumber = $(that).attr('data-animalNumber');
