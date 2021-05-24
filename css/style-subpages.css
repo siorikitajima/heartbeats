@@ -27,7 +27,7 @@
 #chartWrap {
     border-left: #666666 1px solid;
     border-bottom: #666666 1px solid;
-    background-image: url(images/chart-onebillion.svg);
+    background-image: url(../images/chart-onebillion.svg);
     background-position: left bottom;
     background-size: cover;
 }

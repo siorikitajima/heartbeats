@@ -377,7 +377,7 @@ body {
     animation-duration: 0.03s;}
 
 .square, .fullscreen {
-  background-image: url("images/45-degree-fabric-light.png");
+  background-image: url("../images/45-degree-fabric-light.png");
 }
 
 /* ------------------Animal Grid Wrapper------------------ */

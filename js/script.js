@@ -7,7 +7,7 @@ if (!animalRequest) {
   alert('Giving up :( Cannot create an XMLHTTP instance');
 }
 
-animalRequest.open('GET','animal_data.json', true);
+animalRequest.open('GET','js/animal_data.json', true);
 
 animalRequest.onload = function() {
 
@@ -181,7 +181,7 @@ function openAnalytics() {
   };
 
 /////////////////////////////////////////// Sounds
-$.getScript('howler.js', function() {
+$.getScript('js/howler.js', function() {
 
   var animalSound = [
     {sound: new Howl({ src: ['sounds/01BlueWhale09.ogg', 'sounds/01BlueWhale09.mp3'], loop: true})},
