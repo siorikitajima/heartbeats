@@ -481,6 +481,8 @@ $('.chart-animals').mouseenter(function() {
 $('.chart-animals').click(function(event){
   event.stopPropagation();
   var clickedAnimalNumber = $(this).attr("data-animalNumber");
+  generateFullScreenAnimal(clickedAnimalNumber);
+  console.log(clickedAnimalNumber);
   animalDotUnFocus();
   closeAnalytics();
   for (i = 0; i < animalSound.length; i++) {
@@ -489,7 +491,7 @@ $('.chart-animals').click(function(event){
     } else {
         animalSound[i].sound.volume(0.1);
     }
-  }  
+  } 
 })
 
 ///////////////////////////// Close Button
