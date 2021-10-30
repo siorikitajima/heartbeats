@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+<div id="rightBtnAnalytics" class="btns displayNone"><img  src="images/closebtn_dark.svg"></div>
+<div id="leftArrowAnalytics" class="arrows displayNone"><img  src="images/leftarrow_dark.svg"></div>
+<div id="rightArrowAnalytics" class="arrows displayNone"><img  src="images/rightarrow_dark.svg"></div>
+
+<div id="bordersWrap">
+  <div id="verticalLine"></div>
+  <div id="horizontalLine"></div>
+
+  <!-- Buttons in the pink DotInfo panel -->
+  <div id="rightBtnAnalyticsMobile" class="mobilebtns displayNone"><img  src="images/closebtn.svg"></div>
+  <div id="leftArrowMobile" class="mobilearrows displayNone"><img  src="images/leftarrow.svg"></div>
+  <div id="rightArrowMobile" class="mobilearrows displayNone"><img  src="images/rightarrow.svg"></div>
+
+<!--    <div id="axisYTitle">
+    <p>100</p>
+    <p class="middleAxisY">50</p>
+    <p>Yrs</p>
+  </div>
+  <div id="axisXTitle">
+    <p>1500</p>
+    <p class="middleAxisXone">1000</p>
+    <p class="middleAxisXtwo">300</p>
+    <p class="middleAxisXthree">150</p>
+    <p>BPM</p>
+  </div>-->
+<div id="chartWrap">
+
+  <script id="template-dots" type="text/template">
+        <img class="chart-animals" id="{{animalId}}" src='images/dot-animals/{{animalId}}_dot.svg' style='bottom:{{lifePercent}}%; right:{{bpmPercent}}%;' data-animalNumber="{{animalNumber}}"/>
+  </script>
+
+</div>
+</div>
+
+<div id="dotInfo">
+    <div>
+      <img src='images/PatternBased_art_white_icon.svg'>
+    </div>
+    <div>
+      <p class='dotInfoLarge'>Analytics</p>
+      <p class='dotInfoSmall'>This chart is showing heart rate and life expectancy of animals. Touch one to learn more. The pink line is showing <span>One Million</span> beats per lifetime.</p>
+    </div>
+</div>
+
+<script src="js/script-local.js"></script>
+</body>
+</html>

@@ -3,50 +3,62 @@
 <head>
   <title>Heartbeats. | PatternBased</title>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=”apple-mobile-web-app-capable” content=”yes”>
+  <meta property="og:title" content="Heartbeats. | PatternBased" />
+  <meta property="og:url" content="https://heartbeats.patternbased.com/" />
+  <meta property="og:image" content="https://heartbeats.patternbased.com/images/heartbeats.jpg" />
+  <meta property="og:description" name="og:description" content="Heartbeats is an info-art piece to make the heartbeats of animals visible and audible.">
+  <meta property="description" name="description" content="Heartbeats is an info-art piece to make the heartbeats of animals visible and audible.">
+
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Pinyon+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="stylesheet" type="text/css" href="css/style-subpages.css" />
+  <link rel="stylesheet" type="text/css" href="css/style-pages.css" />
   <link rel="icon"  type="image/png"  href="images/patternBased_Logo_icon.png" />
-  <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/howler.js"></script>
   <script src="js/lottie.js"></script>
 </head>
+
 <body>
-<!--Header-->
 <div id="header">
+  <!--Mobile Nav-->
   <div id="mobileNav">
     <p class="navAnimals">Tile</p>
     <p class="navAnalytics">Analytics</p>
     <p class="navAbout">About</p>
   </div>
+  <!--Screen Nav-->
   <div id="headerMain">
-  <div id="headerLeft">
-    <h1 id="headerLogo" class="hbTitle">Heartbeats.</h1>
-  </div>
-  <div id="headerRight">
-    <nav>
-      <p class="navAnimals">Tile</p>
-      <p class="navAnalytics">Analytics</p>
-      <p class="navAbout">About</p>
-    </nav>
-  <img id="menuIcon" src="images/menuIcon.svg">
-  </div>
-  <!--Mute/Unmute-->
-    <div>
+    <div id="headerLeft">
+      <a href="/">
+        <h1 id="headerLogo" class="hbTitle">
+          Heartbeats.
+        </h1>
+      </a>
+    </div>
+    <div id="headerMiddle">
         <img id="mute" src="images/mute.svg">
         <img id="unmute" class="displayNone" src="images/unmute.svg">
     </div>
+    <div id="headerRight">
+      <nav>
+        <p class="navAnimals">Tile</p>
+        <p class="navAnalytics">Analytics</p>
+        <p class="navAbout">About</p>
+      </nav>
+    <img id="menuIcon" src="images/menuIcon.svg">
+    </div>
   </div>
 </div>
-<div class="clear"></div>
 
 <!-- The Modal -->
   <div id="playModal" class="modal">
-    <!-- Modal content -->
     <div class="modal-content">
       <h1 class="hbTitle">Heartbeats.</h1>
-      <p class="modal-text">Sound is a part of the experience. </br>Please enable your speaker or<br /> headphone, and click &hearts; below.</p>
+      <p class="modal-text">Sound is a part of the experience. </br>Click &hearts; below to play.</p>
         <div class="show-starter">
             <img id="playHeart" src="images/heart-play.svg"/>
             <span class="modal-close">Play muted for now</span>
@@ -56,7 +68,7 @@
 
 <!-- About -->
 <div id="aboutPanel">
-  <div id="rightBtnAbout" class="btns displayNone"><img  src="images/closebtn_dark.svg"></div>
+  <div id="rightBtnAbout" class="btns displayNone"><img  src="images/sidepanel/close_circle.svg"></div>
   <div id="aboutHB" class="aboutBody">
     <h1>Heartbeats.</h1>
     <p>We the animals all live while our hearts beat.</p> 
@@ -81,57 +93,55 @@
     <h2>Credit</h2>
     <p class="centerAlign">
       <span>Created</span> by <a href='https://www.patternbased.com/' target='_blank'>PatternBased</a><br />
-      <span>Concept, Analytics, Design, illustration and Code</span> by <a href='http://www.siorikitajima.com' target='_blank'>Siori Kitajima</a><br />
+      <span>Art and Code</span> by <a href='http://www.siorikitajima.com' target='_blank'>Siori Kitajima</a><br />
       <a href="https://github.com/siorikitajima/heartbeats" target="_blank"><i><img src='images/github-icon.svg' width='16' height='16' style='margin-bottom: -3px; margin-right: 5px;'>Fork this project on github</i></a><br />
       <span>Music</span> by <a href='http://www.josephminadeo.com' target='_blank'>Joseph "Bunny" Minadeo</a>
     </p>
   </div>
   <div id="credit" class="aboutBody">
     <h2>Tools</h2>
-    <p class="centerAlign">Made with <span>amazing tools </span>including <a href="https://airbnb.io/lottie/#/" target="_blank">Lottie</a>, <a href="https://howlerjs.com/" target="_blank">Howler.js</a>, <a href='https://code.visualstudio.com/' target='_blank'>Visual Studio Code</a>, <a href='https://github.com/' target='_blank'>Github</a>, and <a href='https://vcvrack.com/' target='_blank'>VCV Rack</a>.</p>
+    <p class="centerAlign">Made with <span>amazing tools </span>including <a href="https://airbnb.io/lottie/#/" target="_blank">Lottie</a>, <a href="https://howlerjs.com/" target="_blank">Howler.js</a>, and <a href='https://vcvrack.com/' target='_blank'>VCV Rack</a>.</p>
   </div>
   <div id="Aboutfooter" class="aboutFullWidth">
     <a href='https://www.patternbased.com/' target='_blank'><img src='images/PatternBased_Logo_CL.png' class='sidepanelLogo'></a>
-    <p>© 2020 PatternBased. All Rights Reserved.</p>
+    <p>© 2021 PatternBased. All Rights Reserved.</p>
   </div>
 </div>
 
 <!-- Analytics -->
 <div id="analytics">
-  <div id="rightBtnAnalytics" class="btns displayNone"><img  src="images/closebtn_dark.svg"></div>
-  <div id="leftArrowAnalytics" class="arrows displayNone"><img  src="images/leftarrow_dark.svg"></div>
-  <div id="rightArrowAnalytics" class="arrows displayNone"><img  src="images/rightarrow_dark.svg"></div>
+
+  <div id="rightBtnAnalytics" class="btns displayNone">
+    <img  src="images/closebtn_dark.svg">
+  </div>
+  <div id="leftArrowAnalytics" class="arrows displayNone">
+    <img  src="images/leftarrow_dark.svg">
+  </div>
+  <div id="rightArrowAnalytics" class="arrows displayNone">
+    <img  src="images/rightarrow_dark.svg">
+  </div>
+
   <div id="bordersWrap">
     <div id="verticalLine"></div>
     <div id="horizontalLine"></div>
+
     <div id="dotInfo">
       <img src='images/PatternBased_art_white_icon.svg'>
       <p class='dotInfoLarge'>Analytics</p>
-      <p class='dotInfoSmall'>This chart is showing heart rate and life expectancy of animals. Touch one to learn more. The pink line is showing <span>One Million</span> beats per lifetime.</p>
+      <p class='dotInfoSmall'>This chart is showing heart rate and life expectancy of animals. Touch one to learn more. The gray area represents <span>One Million</span> beats per lifetime.</p>
     </div>
+
     <!-- Buttons in the pink DotInfo panel -->
     <div id="rightBtnAnalyticsMobile" class="mobilebtns displayNone"><img  src="images/closebtn.svg"></div>
     <div id="leftArrowMobile" class="mobilearrows displayNone"><img  src="images/leftarrow.svg"></div>
     <div id="rightArrowMobile" class="mobilearrows displayNone"><img  src="images/rightarrow.svg"></div>
 
-<!--    <div id="axisYTitle">
-      <p>100</p>
-      <p class="middleAxisY">50</p>
-      <p>Yrs</p>
-    </div>
-    <div id="axisXTitle">
-      <p>1500</p>
-      <p class="middleAxisXone">1000</p>
-      <p class="middleAxisXtwo">300</p>
-      <p class="middleAxisXthree">150</p>
-      <p>BPM</p>
-    </div>-->
-  <div id="chartWrap">
+    <div id="chartWrap">
     <script id="template-dots" type="text/template">
           <img class="chart-animals" id="{{animalId}}" src='images/dot-animals/{{animalId}}_dot.svg' style='bottom:{{lifePercent}}%; right:{{bpmPercent}}%;' data-animalNumber="{{animalNumber}}"/>
     </script>
   </div>
-  </div>
+</div>
 </div>
   
 <!-- Full screen Animal -->
@@ -153,7 +163,6 @@
                       c-1.56,22.6-10.08,43.37-20.68,63.2c-21.09,39.47-49.59,73.32-80.62,105.16c-51.23,52.56-108.04,98.49-167.85,140.84
                       c-4.38,3.1-7.44,3.07-11.85,0.05c-64.42-44.03-125.09-92.56-178.74-149.42c-28.45-30.16-54.23-62.41-72.52-99.95
                       C128.44,269.45,120.49,245.22,121.65,218.8z"/></svg></object>
-                <!-- SVG/CSS Animation 1/1 <img id="animatedAnimalSVG" src="">-->
                 <div id="animatedAnimalSVG"></div>
             </div>
 
