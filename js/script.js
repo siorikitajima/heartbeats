@@ -491,7 +491,7 @@ $('.chart-animals').click(function(event){
     } else {
         animalSound[i].sound.volume(0.1);
     }
-  } 
+  }  
 })
 
 ///////////////////////////// Close Button
